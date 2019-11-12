@@ -73,9 +73,15 @@
 
 </style>
 
-<h1>Star Tribune holiday cookie contest</h1>
+<div class="hero">
+	<img src="" class="logo">
+	<h1>Star Tribune holiday cookie contest</h1>
+	<div>Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</div>
+</div>
 
-<div>Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</div>
+
+
+
 
 <div>
   <input bind:value={search_term}/>
