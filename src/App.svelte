@@ -1,6 +1,11 @@
 <script>
+	import { onMount } from 'svelte';
+	import { tns } from "../node_modules/tiny-slider/src/tiny-slider"
+	export let slider;
+
 	import { cookies } from './data/cookies.js';
 	import CookieThumb from './CookieThumb.svelte';
+	import CookieDetail from './CookieDetail.svelte';
 
 	export let cookie_list;
 	export let search_term = '';
@@ -11,10 +16,21 @@
 	export let cookie_types = ['Any', 'Rolled', 'Bar', 'Drop', 'Refrigerator'];
 	export let current_cookie_type = 'Any';
 
+	export let current_recipe;
+
 	export const unsubscribe = cookies.subscribe(value => {
 		cookie_list = value;
 	});
 
+	// Detail view
+	export const showDetail = function (event) {
+		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
+		console.log(current_recipe);
+		console.log(event.detail);
+		slider.goTo(event.detail.slider_id);
+	}
+
+	// Search/filter functions
 	$: filteredRecipes = cookie_list.filter(recipe => {
 		let match = true;
 
@@ -39,7 +55,23 @@
 
 		return match;
 	});
+
+	onMount(() => {
+		slider = tns({
+	    container: '#detail-slider',
+	    items: 1,
+	    slideBy: 'page',
+	    autoplay: false
+	  });
+	});
 </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
+<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-->
+
+<style>
+
+</style>
 
 <h1>Star Tribune holiday cookie contest</h1>
 
@@ -69,6 +101,12 @@
 	{/each}
 </div>
 
+<div id="detail-slider">
 {#each filteredRecipes as recipe}
-	<CookieThumb {recipe}/>
+	<CookieDetail {recipe}/>
+{/each}
+</div>
+
+{#each filteredRecipes as recipe, list_index}
+	<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
 {/each}
