@@ -7,10 +7,12 @@
 	const dispatch = createEventDispatcher();
 
 	function selectRecipe(event) {
-		dispatch('recipe_selected', {
+    let detail_state = {
 			id: event.target.id,
       slider_id: event.target.getAttribute('slider_id')
-		});
+		}
+    history.pushState(detail_state, event.target.id, '?recipe=' + event.target.id);
+		dispatch('recipe_selected', detail_state);
 	}
 </script>
 
