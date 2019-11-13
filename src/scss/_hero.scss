@@ -1,8 +1,60 @@
 div.hero {
 	height: 100vh;
 	width: 100%;
+	background: url(http://ststatic.stimg.co/images/heroimg.jpg?w=1000);
+	background-size: cover;
+	background-position: 50% 100%;
+	text-align: center;
+	padding-top: 60px;
+	img.logo {
+		height: 25px;
+	}
 	h1 {
 		font-family: "Popular";
 		font-weight: bold;
+		text-transform: uppercase;
+		width: 250px;
+		margin: 0 auto;
+		line-height: 1;
+		font-size: 42px;
+		margin-top: 30px;
+	}
+}
+
+body {
+	background: rgba(254, 245, 231, 0.3);
+}
+
+h2.subhead {
+	width: 85%;
+	margin: 0 auto;
+	font-weight: normal;
+	font-size: 18px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+div.search {
+	width: 85%;
+	margin: 0 auto;
+	position: relative;
+	margin-bottom: -50px;
+	z-index: 100;
+	.strib-search {
+		display: block;
+		position: absolute;
+		left: 0;
+		bottom: 23px;
+		height: 10px;
+		color: gray;
+	}
+	input {
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
+		border-left: 1px solid white;
+		border-right: 1px solid white;
+		border-top: 1px solid white;
+		border-bottom: 1px solid gray;
 	}
 }

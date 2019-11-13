@@ -77,6 +77,7 @@
 	onMount(() => {
 		slider = tns({
 	    container: '#detail-slider',
+	    controlsContainer: "#customize-controls",
 	    items: 1,
 	    slideBy: 'page',
 	    autoplay: false
@@ -98,26 +99,21 @@
 
 </script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
+
 <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-->
 
-<style>
-
-</style>
 
 <div class="hero">
-	<img src="http://static.startribune.com/images/reverse-startribune-logo-white.svg" class="logo">
-	<h1>Star Tribune holiday cookie contest</h1>
-	<div>Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</div>
+	<img src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
+	<h1>holiday cookie contest</h1>
 </div>
 
+<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
 
-
-
-
-<div>
-  <input bind:value={search_term}/>
-  <p>{search_term}</p>
+<div class="search">
+	<i class="strib-icon strib-search"></i>
+	<input placeholder="ex: cinnamon" bind:value={search_term}/>
+	<p>{search_term}</p>
 </div>
 
 <div class="navigation inline">
@@ -162,11 +158,14 @@
 </div>
 
 
-
+<div id="customize-controls">
+      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
+      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>
+    </div>
 <div id="detail-slider">
-{#each filteredRecipes as recipe}
-	<CookieDetail {recipe}/>
-{/each}
+	{#each filteredRecipes as recipe}
+		<CookieDetail {recipe}/>
+	{/each}
 </div>
 
 <div class="filtered-results">
