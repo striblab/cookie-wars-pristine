@@ -176,10 +176,15 @@
     font-weight: normal;
 }
 
+body {
+    padding: 0;
+}
+
 // Project specific styles.  Split styles into files per component
 
+@import 'main';
 @import 'nav';
 @import 'hero';
-@import 'main';
+@import 'thumb';
 @import 'detail';
 

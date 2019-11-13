@@ -95,6 +95,7 @@
 			// }
 		}
 	});
+
 </script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
@@ -105,7 +106,7 @@
 </style>
 
 <div class="hero">
-	<img src="" class="logo">
+	<img src="http://static.startribune.com/images/reverse-startribune-logo-white.svg" class="logo">
 	<h1>Star Tribune holiday cookie contest</h1>
 	<div>Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</div>
 </div>
@@ -119,24 +120,48 @@
   <p>{search_term}</p>
 </div>
 
-<div>
-  <h5>Features</h5>
-  {#each features as feature}
-    <label>
-  		<input type=checkbox bind:group={checked_features} value={feature}>
-  		{feature}
-  	</label>
-  {/each}
+<div class="navigation inline">
+	<div class="top-nav">
+		<a href="http://startribune.com/">
+			<img class="logo white" src="http://static.startribune.com/images/reverse-startribune-logo-white.svg">
+			<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
+		</a>
+		<div class="sharing">
+			<!-- sharing -->
+		</div>
+	</div>
+	<div class="second-nav">
+		<div class="condensed-view">
+			<div class="selected-filters">
+				<p>{checked_features} {current_cookie_type}</p>
+			</div>
+			<div class="arrow show-more">
+				<i class="strib-icon strib-nav-forward"></i>
+			</div>
+			<div class="back">
+				<p>Back</p>
+			</div>
+		</div>
+	  	<h5>Features</h5>
+		{#each features as feature}
+		    <label class="features">
+		  		<input type=checkbox bind:group={checked_features} value={feature}>
+		  		{feature}
+		  	</label>
+		{/each}
+
+	  	<h5>Cookie type</h5>
+		{#each cookie_types as type}
+			<label class="type">{type}
+				<input type=radio bind:group={current_cookie_type} value={type}>
+			</label>
+		{/each}
+
+		<h4>Clear all filters</h4>
+	</div>
 </div>
 
-<div>
-  <h5>Cookie type</h5>
-	{#each cookie_types as type}
-		<label>{type}
-			<input type=radio bind:group={current_cookie_type} value={type}>
-		</label>
-	{/each}
-</div>
+
 
 <div id="detail-slider">
 {#each filteredRecipes as recipe}
@@ -144,6 +169,8 @@
 {/each}
 </div>
 
+<div class="filtered-results">
 {#each filteredRecipes as recipe, list_index}
 	<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
 {/each}
+</div>

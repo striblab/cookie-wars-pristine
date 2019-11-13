@@ -1,0 +1,137 @@
+div.navigation {
+	font-family: "Benton Sans";
+	&.inline {
+		div.top-nav {
+			display: none;
+		}
+		div.second-nav {
+			background: transparent;
+		}
+		div.condensed-view {
+			display: none;
+		}
+	}
+	div.top-nav {
+		width: 100%;
+		height: 35px;
+		background: #00824a;
+		position: relative;
+		display: block;
+		img.logo {
+			position: absolute;
+			height: 20px;
+			left: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		div.sharing {
+			position: absolute;
+			height: 20px;
+			right: 10px;
+			transform: translateY(-50%);
+		}
+	}
+	div.second-nav {
+		height: auto;
+		background: #F8F9F9;
+		padding: 10px;
+		div.condensed-view {
+			width: 100%;
+			height: 18px;
+			overflow: hidden;
+			position: relative;
+			div.selected-filters {
+				p {
+					margin: 0;
+					font-size: 14px;
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 60%;
+					overflow: hidden;
+					span.label {
+						display: inline-block;
+						font-weight: bold;
+					}
+				}
+			}
+			div.arrow {
+				position: absolute;
+				right: 10px;
+				transform: rotate(90deg);
+			}
+			div.back {
+				position: absolute;
+				right: 10px;
+				font-weight: bold;
+				font-size: 10px;
+				text-transform: uppercase;
+				letter-spacing: 0.2px;
+				top: -8px;
+				opacity: 0;
+			}
+		}
+		label.features {
+		    display: inline-block; 
+		    border: 1px solid #006341;
+		    padding: 5px 10px 5px 15px;
+		    line-height: 1;
+		    margin-right: 5px;
+		    margin-bottom: 5px;
+		    border-radius: 10px;
+		    font-size: 14px;
+		    position: relative;
+		    width: auto;
+		    color: #006341;
+		    input {
+		    	margin: 0;
+		    	width: 0;
+		    	&::before {
+		    		content: '+';
+		    		position: absolute;
+		    		left: 5px;
+		    		font-weight: bold;
+
+		    	}
+		    	&:checked {
+					&::before {
+			    		content: '-';
+			    	}
+		    	}
+		    }
+		}
+		label.type {
+		    display: inline-block; 
+		    border: 1px solid #006341;
+		    padding: 5px 10px 5px 15px;
+		    line-height: 1;
+		    margin-right: 5px;
+		    margin-bottom: 5px;
+		    border-radius: 10px;
+		    font-size: 14px;
+		    position: relative;
+		    width: auto;
+		    color: #006341;
+		    input {
+		    	margin: 0;
+		    	width: 0;
+		    	opacity: 0;
+		    }
+		}
+		h5 {
+			font-weight: bold;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			font-size: 11px;
+			margin-bottom: 10px;
+			margin-top: 30px;
+		}
+		h4 {
+			font-weight: normal;
+			font-size: 12px;
+			text-decoration: underline;
+			margin-top: 30px;
+		}
+	}
+}
+

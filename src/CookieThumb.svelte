@@ -16,15 +16,13 @@
 	}
 </script>
 
-<style>
-  .cookie-thumbnail {
-    width: 100px;
-  }
-</style>
 
-<div>
-  <h3><a href="Javascript:;" on:click="{selectRecipe}" id="{recipe.id}" slider_id="{list_index}">{recipe.name}</a></h3>
-  <div class="blurb">{recipe.year}: {recipe.summary}</div>
-  <div>{recipe.baker[0].name}</div>
-  <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/>
+<div class="cookie" style="background: url({recipe.thumbnail}); background-size: cover; background-position: 50% 80%; background-repeat: no-repeat;">
+  <div class="text">
+    <h5>{recipe.year}</h5>
+    <h3><a href="Javascript:;" on:click="{selectRecipe}" id="{recipe.id}" slider_id="{list_index}">{recipe.name}</a></h3>
+    <p class="blurb">{recipe.summary}</p>
+    <!-- <div class="author">{recipe.baker[0].name}</div> -->
+  </div>
+  <!-- <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/> -->
 </div>
