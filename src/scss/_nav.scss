@@ -6,6 +6,7 @@ div.navigation {
 		}
 		div.second-nav {
 			background: transparent;
+			border-bottom: 3px solid transparent;
 			div.condensed-view {
 				opacity: 0;
 			}
@@ -14,13 +15,14 @@ div.navigation {
 	div.top-nav {
 		width: 100%;
 		height: 35px;
-		background: #00824a;
+		background: white;
+		border-bottom: 1px solid #E5E7E9;
 		position: relative;
 		display: block;
 		opacity: 1;
 		img.logo {
 			position: absolute;
-			height: 20px;
+			height: 18px;
 			left: 10px;
 			top: 50%;
 			transform: translateY(-50%);
@@ -34,45 +36,90 @@ div.navigation {
 	}
 	div.second-nav {
 		height: auto;
-		background: #F8F9F9;
-		width: 85%;
+		background: white;
+		border-bottom: 3px solid #E5E7E9;
+		width: 100%;
+		padding-left: 7.5%;
+		padding-right: 7.5%;
 		margin: 0 auto;
+		box-sizing: border-box;
+		&.hide {
+			div.filters {
+				height: 0;
+				overflow: hidden;
+			}
+			div.condensed-view {
+				div.arrow {
+					transform: rotate(90deg);
+				}
+			}
+		}
+		&.recipe-detail {
+			div.filters {
+				height: 0;
+				overflow: hidden;
+			}
+			div.condensed-view {
+				div.arrow {
+					display: none;
+				}
+				div.back {
+					display: block;
+					opacity: 1;
+				}
+			}
+		}
 		div.condensed-view {
 			width: 100%;
-			height: 18px;
+			height: 25px;
+			padding-top: 5px;
 			overflow: hidden;
 			position: relative;
 			opacity: 1;
 			div.selected-filters {
 				p {
 					margin: 0;
-					font-size: 14px;
+					font-size: 13px;
 					position: absolute;
 					left: 0;
-					top: 0;
+					top: 50%;
+					transform: translateY(-50%);
 					width: 60%;
 					overflow: hidden;
-					span.label {
-						display: inline-block;
+					height: 15px;
+					display: inline;
+					&:before {
+						display: inline;
 						font-weight: bold;
+						content: 'Filters: ';
 					}
 				}
 			}
 			div.arrow {
 				position: absolute;
-				right: 10px;
-				transform: rotate(90deg);
+				right: 1%;
+				transform: rotate(270deg);
+				top: 35%;
+				font-size: 12px;
+				color: #BDC3C7;
 			}
 			div.back {
 				position: absolute;
-				right: 10px;
-				font-weight: bold;
-				font-size: 10px;
-				text-transform: uppercase;
-				letter-spacing: 0.2px;
-				top: -8px;
-				opacity: 0;
+				right: 0px;
+				top: 0%;
+				display: none;
+				color: #797D7F;
+				p {
+					font-weight: bold;
+					font-size: 11px;
+					text-transform: uppercase;
+					letter-spacing: 0.5px;
+				}
 			}
+		}
+		div.filters {
+			height: auto;
+			overflow: hidden;
 		}
 		label.features {
 		    display: inline-block; 
@@ -86,6 +133,21 @@ div.navigation {
 		    position: relative;
 		    width: auto;
 		    color: #006341;
+		    &.active {
+		    	background: #006341;
+		    	color: white;
+		    	input {
+			    	&::before {
+			    		color: white;
+
+			    	}
+			    	&:checked {
+						&::before {
+				    		color: white;
+				    	}
+			    	}
+			    }
+		    }
 		    input {
 		    	margin: 0;
 		    	width: 0;
@@ -94,11 +156,13 @@ div.navigation {
 		    		position: absolute;
 		    		left: 5px;
 		    		font-weight: bold;
+		    		color: #006341;
 
 		    	}
 		    	&:checked {
 					&::before {
 			    		content: '-';
+			    		color: #006341;
 			    	}
 		    	}
 		    }
@@ -136,5 +200,14 @@ div.navigation {
 			margin-top: 30px;
 		}
 	}
+}
+
+svelte-scroller-background-container.svelte-ihz62u {
+	z-index: 10000 !important;
+	margin-bottom: 100px;
+}
+
+svelte-scroller-foreground {
+	padding-top: 400px;
 }
 

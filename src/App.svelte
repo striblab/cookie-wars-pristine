@@ -1,7 +1,17 @@
+
 <script>
 	import { onMount } from 'svelte';
 	import { tns } from "../node_modules/tiny-slider/src/tiny-slider"
 	export let slider;
+
+	import Scroller from '@sveltejs/svelte-scroller';
+	let count;
+	let index;
+	let offset;
+	let progress;
+	let top = 0;
+	let threshold = 0;
+	let bottom = 0.9;
 
 	const queryString = require('query-string');
 
@@ -57,6 +67,8 @@
 
 		return match;
 	});
+
+	let current = 'foo';
 
 	const triggerDetailView = function (recipe_id) {
 		for (let i=0; i < cookie_list.length; i++) {
@@ -116,60 +128,96 @@
 	<p>{search_term}</p>
 </div>
 
-<div class="navigation inline">
-	<div class="top-nav">
-		<a href="http://startribune.com/">
-			<img class="logo white" src="http://static.startribune.com/images/reverse-startribune-logo-white.svg">
-			<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
-		</a>
-		<div class="sharing">
-			<!-- sharing -->
+
+<Scroller
+	{top}
+	{threshold}
+	{bottom}
+	bind:count
+	bind:index
+	bind:offset
+	bind:progress>
+
+	<!-- <div slot="background">
+		<p>current section: <strong>{index + 1}/{count}</strong></p>
+		<progress value="{count ? (index + 1) / count : 0}"></progress>
+
+		<p>offset in current section</p>
+		<progress value={offset || 0}></progress>
+
+		<p>total progress</p>
+		<progress value={progress || 0}></progress>
+	</div>
+
+	<div slot="foreground" style="padding: 0 0 0 50%;">
+		<section>section 1</section>
+		<section>section 2</section>
+		<section>section 3</section>
+		<section>section 4</section>
+		<section>section 5</section>
+	</div> -->
+	
+	<div class="navigation inline" slot="background">
+		<div class="top-nav">
+			<a href="http://startribune.com/">
+				<img class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
+				<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
+			</a>
+			<div class="sharing">
+				<!-- sharing -->
+			</div>
+		</div>
+		<div class="second-nav">
+			<div class="condensed-view">
+				<div class="selected-filters">
+					<p>{checked_features} {current_cookie_type}</p>
+				</div>
+				<div class="arrow show-more">
+					<i class="strib-icon strib-nav-forward"></i>
+				</div>
+				<div class="back">
+					<p>Back</p>
+				</div>
+			</div>
+
+			<div class="filters">
+			  	<h5>Features</h5>
+				{#each features as feature}
+				    <label class="features">
+				  		<input type=checkbox bind:group={checked_features} value={feature}>
+				  		{feature}
+				  	</label>
+				{/each}
+
+			  	<h5>Cookie type</h5>
+				{#each cookie_types as type}
+					<label class="type" class:active="{current === 'bar'}" on:click="{() => current = 'bar'}">{type}
+						<input type=radio bind:group={current_cookie_type} value={type}>
+					</label>
+				{/each}
+
+				<h4>Clear all filters</h4>
+			</div>
 		</div>
 	</div>
-	<div class="second-nav">
-		<div class="condensed-view">
-			<div class="selected-filters">
-				<p>{checked_features} {current_cookie_type}</p>
-			</div>
-			<div class="arrow show-more">
-				<i class="strib-icon strib-nav-forward"></i>
-			</div>
-			<div class="back">
-				<p>Back</p>
+
+	<div slot="foreground">
+		<div class="recipe-wrapper hidden">
+			<div id="customize-controls">
+			      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
+			      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>
+			    </div>
+			<div id="detail-slider">
+				{#each filteredRecipes as recipe}
+					<CookieDetail {recipe}/>
+				{/each}
 			</div>
 		</div>
-	  	<h5>Features</h5>
-		{#each features as feature}
-		    <label class="features">
-		  		<input type=checkbox bind:group={checked_features} value={feature}>
-		  		{feature}
-		  	</label>
-		{/each}
 
-	  	<h5>Cookie type</h5>
-		{#each cookie_types as type}
-			<label class="type">{type}
-				<input type=radio bind:group={current_cookie_type} value={type}>
-			</label>
+		<div class="filtered-results">
+		{#each filteredRecipes as recipe, list_index}
+			<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
 		{/each}
-
-		<h4>Clear all filters</h4>
+		</div>
 	</div>
-</div>
-
-
-<div id="customize-controls">
-      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
-      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>
-    </div>
-<div id="detail-slider">
-	{#each filteredRecipes as recipe}
-		<CookieDetail {recipe}/>
-	{/each}
-</div>
-
-<div class="filtered-results">
-{#each filteredRecipes as recipe, list_index}
-	<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
-{/each}
-</div>
+</Scroller>

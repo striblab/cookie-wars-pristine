@@ -22,7 +22,7 @@ div.hero {
 }
 
 body {
-	background: rgba(254, 245, 231, 0.3);
+	background: rgba(254, 245, 231, 0.1);
 }
 
 h2.subhead {
@@ -38,13 +38,13 @@ div.search {
 	width: 85%;
 	margin: 0 auto;
 	position: relative;
-	margin-bottom: -50px;
+	/*margin-bottom: -50px;*/
 	z-index: 100;
 	.strib-search {
 		display: block;
 		position: absolute;
 		left: 0;
-		bottom: 23px;
+		top: 40px;
 		height: 10px;
 		color: gray;
 	}

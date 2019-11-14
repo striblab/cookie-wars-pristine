@@ -15,9 +15,10 @@
 
     <p class="yield">{recipe.recipe_yield}</p>
 
-    <h2>Note</h2>
-
-    <p class="note">{recipe.notes}</p>
+    {#if recipe.notes}
+      <h2>Note</h2>
+      <p class="note">{recipe.notes}</p>
+    {/if}
 
     <h2>Ingredients</h2>
 

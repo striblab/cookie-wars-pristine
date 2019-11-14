@@ -22,6 +22,7 @@
     "dev": "webpack-dev-server --content-base public"
   },
   "dependencies": {
+    "@sveltejs/svelte-scroller": "^2.0.5",
     "query-string": "^6.8.3",
     "tiny-slider": "^2.9.2"
   }
