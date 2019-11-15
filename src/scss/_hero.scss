@@ -21,6 +21,14 @@ div.hero {
 	}
 }
 
+div.hero-wrapper {
+	height: auto;
+	&.recipe-show {
+		height: 100vh;
+		overflow: hidden;
+	}
+}
+
 body {
 	background: rgba(254, 245, 231, 0.1);
 }

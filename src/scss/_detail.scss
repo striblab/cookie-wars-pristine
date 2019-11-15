@@ -6,7 +6,7 @@ div.recipe-wrapper {
 	top: 0;
 	left: 0;
 	background: white;
-	padding-top: 100px;
+	padding-top: 150px;
 	z-index: 100;
 	opacity: 1;
 	&.hidden {
@@ -75,6 +75,27 @@ div.recipe-detail {
 	div.text {
 		width: 85%;
 		margin: 0 auto;
+	}
+	div strong {
+		font-size: 15px;
+	    line-height: 1.4;
+	    margin-top: 20px;
+	    display: block;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		font-size: 15px;
+		li {
+			margin-bottom: 7px;
+			position: relative;
+			&:before {
+				content: '•';
+				position: absolute;
+				left: -13px;
+				top: -1px;
+			}
+		}
 	}
 	p {
 		font-size: 15px;

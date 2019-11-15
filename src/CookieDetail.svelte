@@ -22,15 +22,17 @@
 
     <h2>Ingredients</h2>
 
-    <p>{recipe.ingredients}</p>
+    {@html recipe.ingredients_clean}
 
     <h2>Directions</h2>
 
-    <p>{recipe.procedure}</p>
+    {@html recipe.procedure_clean}
 
-    <h2>From the baker</h2>
+    {#if recipe.baker_bio_notes}
+      <h2>From the baker</h2>
 
-    <p>{recipe.baker_bio_notes}</p>
+      <p>{recipe.baker_bio_notes}</p>
+    {/if}
   </div>
 </div>
 {/if}

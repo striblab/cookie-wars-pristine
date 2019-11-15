@@ -134,9 +134,9 @@ div.navigation {
 		    width: auto;
 		    color: #006341;
 		    &.active {
-		    	background: #006341;
-		    	color: white;
-		    	input {
+		    	font-weight: bold;
+		    	border: 2px solid #006341;
+		    	/*input {
 			    	&::before {
 			    		color: white;
 
@@ -146,7 +146,7 @@ div.navigation {
 				    		color: white;
 				    	}
 			    	}
-			    }
+			    }*/
 		    }
 		    input {
 		    	margin: 0;

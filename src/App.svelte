@@ -30,6 +30,10 @@
 
 	export let current_recipe;
 
+	export let detail_view_active = false;
+
+	export let filters_hidden = false;
+
 	export const unsubscribe = cookies.subscribe(value => {
 		cookie_list = value;
 	});
@@ -37,6 +41,7 @@
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
+		detail_view_active = true;
 		console.log(current_recipe);
 		console.log(event.detail);
 		slider.goTo(event.detail.slider_id);
@@ -67,8 +72,6 @@
 
 		return match;
 	});
-
-	let current = 'foo';
 
 	const triggerDetailView = function (recipe_id) {
 		for (let i=0; i < cookie_list.length; i++) {
@@ -109,55 +112,42 @@
 		}
 	});
 
+	const handleArrowClick = function(event) {
+		if (filters_hidden) {
+			filters_hidden = false;
+		} else {
+			filters_hidden = true;
+		}
+	}
+
+	const handleBackClick = function(event) {
+		if (detail_view_active) {
+			detail_view_active = false;
+		} else {
+			detail_view_active = true;
+		}
+	}
+
 </script>
 
 
 <!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-->
 
-
-<div class="hero">
-	<img src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
-	<h1>holiday cookie contest</h1>
-</div>
-
-<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
-
-<div class="search">
-	<i class="strib-icon strib-search"></i>
-	<input placeholder="ex: cinnamon" bind:value={search_term}/>
-	<p>{search_term}</p>
-</div>
-
-
-<Scroller
-	{top}
-	{threshold}
-	{bottom}
-	bind:count
-	bind:index
-	bind:offset
-	bind:progress>
-
-	<!-- <div slot="background">
-		<p>current section: <strong>{index + 1}/{count}</strong></p>
-		<progress value="{count ? (index + 1) / count : 0}"></progress>
-
-		<p>offset in current section</p>
-		<progress value={offset || 0}></progress>
-
-		<p>total progress</p>
-		<progress value={progress || 0}></progress>
+<div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
+	<div class="hero">
+		<img src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
+		<h1>holiday cookie contest</h1>
 	</div>
 
-	<div slot="foreground" style="padding: 0 0 0 50%;">
-		<section>section 1</section>
-		<section>section 2</section>
-		<section>section 3</section>
-		<section>section 4</section>
-		<section>section 5</section>
-	</div> -->
-	
-	<div class="navigation inline" slot="background">
+	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
+
+	<div class="search">
+		<i class="strib-icon strib-search"></i>
+		<input placeholder="ex: cinnamon" bind:value={search_term}/>
+		<p>{search_term}</p>
+	</div>
+
+	<div class="navigation">
 		<div class="top-nav">
 			<a href="http://startribune.com/">
 				<img class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
@@ -167,15 +157,15 @@
 				<!-- sharing -->
 			</div>
 		</div>
-		<div class="second-nav">
+		<div class="second-nav" class:hide="{filters_hidden === true}" class:recipe-detail="{detail_view_active == true}">
 			<div class="condensed-view">
 				<div class="selected-filters">
 					<p>{checked_features} {current_cookie_type}</p>
 				</div>
-				<div class="arrow show-more">
+				<div class="arrow show-more" on:click={handleArrowClick}>
 					<i class="strib-icon strib-nav-forward"></i>
 				</div>
-				<div class="back">
+				<div class="back" on:click={handleBackClick}>
 					<p>Back</p>
 				</div>
 			</div>
@@ -191,7 +181,7 @@
 
 			  	<h5>Cookie type</h5>
 				{#each cookie_types as type}
-					<label class="type" class:active="{current === 'bar'}" on:click="{() => current = 'bar'}">{type}
+					<label class="type"> {type}
 						<input type=radio bind:group={current_cookie_type} value={type}>
 					</label>
 				{/each}
@@ -201,23 +191,22 @@
 		</div>
 	</div>
 
-	<div slot="foreground">
-		<div class="recipe-wrapper hidden">
-			<div id="customize-controls">
-			      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
-			      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>
-			    </div>
-			<div id="detail-slider">
-				{#each filteredRecipes as recipe}
-					<CookieDetail {recipe}/>
-				{/each}
-			</div>
-		</div>
 
-		<div class="filtered-results">
-		{#each filteredRecipes as recipe, list_index}
-			<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
-		{/each}
-		</div>
+	<div class="filtered-results">
+	{#each filteredRecipes as recipe, list_index}
+		<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
+	{/each}
 	</div>
-</Scroller>
+</div>
+
+<div class="recipe-wrapper" class:hidden="{detail_view_active == false}">
+	<div id="customize-controls">
+	      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
+	      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>
+	    </div>
+	<div id="detail-slider">
+		{#each filteredRecipes as recipe}
+			<CookieDetail {recipe}/>
+		{/each}
+	</div>
+</div>
