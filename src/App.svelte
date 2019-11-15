@@ -84,7 +84,7 @@
 	});
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
   <title>{$$props.title}</title>
   <meta name="description" content="Looking for a new cookie recipe this holiday season? Browse 16 years of winning recipes on our cookie finder." />
   <meta property="og:site_name" content="Star Tribune" />
@@ -107,8 +107,8 @@
   <meta name="twitter:image:src" content="http://stmedia.stimg.co/cooky2015.jpg?h=630&amp;w=1200&amp;fit=crop&amp;bg=999&amp;crop=faces"><!-- twitter -->
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
-	<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-->
-</svelte:head>
+	<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-/->
+</svelte:head> -->
 
 <style>
 
