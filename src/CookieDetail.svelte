@@ -13,12 +13,13 @@
   <div class="text">
     <p class="byline">{recipe.year} recipe from <b>{recipe.baker[0].name}</b> of {recipe.baker[0].hometown}.</p>
 
-    <p class="yield">{recipe.recipe_yield}</p>
 
     {#if recipe.notes}
       <h2>Note</h2>
       <p class="note">{recipe.notes}</p>
     {/if}
+
+    <p class="yield">{recipe.recipe_yield}</p>
 
     <h2>Ingredients</h2>
 

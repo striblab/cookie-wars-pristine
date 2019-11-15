@@ -128,6 +128,7 @@
 		}
 	}
 
+
 </script>
 
 
@@ -147,7 +148,7 @@
 		<p>{search_term}</p>
 	</div>
 
-	<div class="navigation">
+	<div class="navigation inline" id="nav">
 		<div class="top-nav">
 			<a href="http://startribune.com/">
 				<img class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
@@ -182,7 +183,7 @@
 			  	<h5>Cookie type</h5>
 				{#each cookie_types as type}
 					<label class="type"> {type}
-						<input type=radio bind:group={current_cookie_type} value={type}>
+						<input type=radio bind:group={current_cookie_type} value={type} class:active="{current_cookie_type == true}">
 					</label>
 				{/each}
 

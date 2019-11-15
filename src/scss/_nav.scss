@@ -1,5 +1,10 @@
 div.navigation {
 	font-family: "Benton Sans";
+	&.fixed {
+		position: fixed;
+		top: 0;
+		z-index: 1000;
+	}
 	&.inline {
 		div.top-nav {
 			opacity: 0;
