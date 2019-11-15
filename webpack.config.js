@@ -1,8 +1,11 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const WebpackNotifierPlugin = require('webpack-notifier');
+
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
+
 
 module.exports = {
 	entry: {
@@ -86,7 +89,8 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
-		})
+		}),
+    new WebpackNotifierPlugin(),
 	],
 	devtool: prod ? false: 'source-map'
 };

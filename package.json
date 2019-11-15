@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "holiday-cookie-finder",
   "version": "1.0.0",
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -17,7 +17,8 @@
     "svelte-loader": "2.13.3",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.3.1",
+    "webpack-notifier": "^1.8.0"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
