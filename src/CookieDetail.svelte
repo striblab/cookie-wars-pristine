@@ -26,11 +26,11 @@
 
   <p>{recipe.notes}</p>
 
-  <p>{recipe.ingredients}</p>
+  {@html recipe.ingredients_clean}
 
   <h2>Directions</h2>
 
-  <p>{recipe.procedure}</p>
+  {@html recipe.procedure_clean}
 
   <h2>From the baker</h2>
 
