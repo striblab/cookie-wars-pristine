@@ -22,16 +22,53 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
+				{
 				test: /\.svelte$/,
-				use: {
+				use: [
+				{
+	            	loader: 'babel-loader',
+	          		options: {
+	            		presets: [['@babel/preset-env', {'targets': 'ie >= 11'}]],
+	            		plugins: ['@babel/plugin-proposal-object-rest-spread',
+	            			["@babel/plugin-transform-runtime", {
+						        "absoluteRuntime": false,
+						        "corejs": 3,
+						        "helpers": true,
+						        "regenerator": true,
+						        "useESModules": false
+    						}]
+    					]
+	          		}
+	          	},
+				{
 					loader: 'svelte-loader',
 					options: {
 						emitCss: true,
 						hotReload: true
 					}
 				}
+	          	]
 			},
+			{
+	            test: /\.(js|mjs)$/,
+	            exclude: /node_modules\/(?!svelte|isomorphic-fetch|query-string|split-on-first|strict-uri-encode\/).*/,
+	        	use: {
+	            	loader: 'babel-loader',
+	          		options: {
+	          			sourceType: 'unambiguous',
+	            		presets: [['@babel/preset-env', {'targets': 'ie >= 11'}]],
+	            		plugins: ['@babel/plugin-proposal-object-rest-spread',
+	            			["@babel/plugin-transform-runtime", {
+						        "absoluteRuntime": false,
+						        "corejs": 3,
+						        "helpers": true,
+						        "regenerator": true,
+						        "useESModules": false
+    						}],
+    					]
+	          		}
+	        	},
+	      	},
 			{
 				test: /\.css$/,
 				use: [
