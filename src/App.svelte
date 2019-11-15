@@ -3,6 +3,8 @@
 	import { tns } from "../node_modules/tiny-slider/src/tiny-slider"
 	export let slider;
 
+	const queryString = require('query-string');
+
 	import { cookies } from './data/cookies.js';
 	import CookieThumb from './CookieThumb.svelte';
 	import CookieDetail from './CookieDetail.svelte';
@@ -56,6 +58,22 @@
 		return match;
 	});
 
+	const triggerDetailView = function (recipe_id) {
+		for (let i=0; i < cookie_list.length; i++) {
+			if (cookie_list[i].id == recipe_id) {
+				// Using old-school loop so we can get the index and break once we find the match.
+				current_recipe = cookie_list[i];
+				slider.goTo(i-1);
+				break;
+			}
+		}
+	}
+
+	window.onpopstate = function(event) {
+		// alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+		triggerDetailView(event.state.id);
+	};
+
 	onMount(() => {
 		slider = tns({
 	    container: '#detail-slider',
@@ -63,6 +81,19 @@
 	    slideBy: 'page',
 	    autoplay: false
 	  });
+
+		const parsed_querystring = queryString.parse(location.search);
+		if (parsed_querystring['recipe']) {
+			triggerDetailView(parsed_querystring['recipe']);
+			// for (let i=0; i < cookie_list.length; i++) {
+			// 	if (cookie_list[i].id == parsed_querystring['recipe']) {
+			// 		// Using old-school loop so we can get the index and break once we find the match.
+			// 		current_recipe = cookie_list[i];
+			// 		slider.goTo(i-1);
+			// 		break;
+			// 	}
+			// }
+		}
 	});
 </script>
 
