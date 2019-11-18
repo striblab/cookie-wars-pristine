@@ -38,6 +38,12 @@ div#customize-controls {
 		right: 20px;
 		top: 0;
 	}
+	@media (min-width: 601px) {
+		width: 80%;
+	    margin: 0 auto;
+	    margin-bottom: -50px;
+	    max-width: 900px;
+	}
 }
 
 
@@ -48,11 +54,23 @@ div.recipe-detail {
 	.image {
 		width: 100%;
 		height: 250px;
+		@media (min-width: 601px) {
+			width: 100%;
+		    margin: 0 auto;
+		    height: 600px;
+		    max-width: 1000px;
+		    margin-top: 60px;
+		}
 	}
 	div.headline {
 		width: 100%;
 		height: auto;
 		position: relative;
+		@media (min-width: 601px) {
+			width: 80%;
+		    margin: 0 auto;
+		    max-width: 900px;
+		}
 	}
 	h1 {
 		font-family: "Popular";
@@ -61,6 +79,9 @@ div.recipe-detail {
 		font-size: 27px;
 		width: 65%;
 		margin: 0 auto;
+		@media (min-width: 601px) {
+			font-size: 30px;
+		}
 	}
 	h3 {
 		font-family: "Popular";
@@ -71,16 +92,28 @@ div.recipe-detail {
 		margin: 0 auto;
 		margin-top: 10px;
 		margin-bottom: 20px;
+		@media (min-width: 601px) {
+			font-size: 20px;
+		}
 	}
 	div.text {
 		width: 85%;
 		margin: 0 auto;
+		@media (min-width: 601px) {
+			width: 80%;
+		    margin: 0 auto;
+		    max-width: 650px;
+		}
 	}
 	div strong {
 		font-size: 15px;
 	    line-height: 1.4;
 	    margin-top: 20px;
 	    display: block;
+	    @media (min-width: 601px) {
+			font-size: 18px;
+	   		line-height: 1.4;
+		}
 	}
 	ul {
 		list-style: none;
@@ -96,10 +129,18 @@ div.recipe-detail {
 				top: -1px;
 			}
 		}
+		@media (min-width: 601px) {
+			font-size: 18px;
+	   		line-height: 1.4;
+		}
 	}
 	p {
 		font-size: 15px;
 		line-height: 1.4;
+		@media (min-width: 601px) {
+			font-size: 18px;
+	   		line-height: 1.4;
+		}
 		&.yield{
 			font-style: italic;
 			margin-bottom: 0;
@@ -109,7 +150,13 @@ div.recipe-detail {
 			text-align: center;
 			font-size: 14px;
 			max-width: 250px;
-			margin: 0 auto;margin-top: 20px;
+			margin: 0 auto;
+			margin-top: 20px;
+			@media (min-width: 601px) {
+				font-size: 16px;
+		   		width: 100%;
+		   		max-width: 100%;
+			}
 		}
 	}
 	h2 {
@@ -120,5 +167,9 @@ div.recipe-detail {
 		margin-top: 30px;
 		margin-bottom: 0px;
 		text-transform: uppercase;
+		@media (min-width: 601px) {
+			font-size: 14px;
+	   		margin-top: 60px;
+		}
 	}
 }

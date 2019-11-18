@@ -34,6 +34,17 @@
 
 	export let filters_hidden = false;
 
+	export let scrollY;
+	export let y_from_top;
+	$: {
+		let happy = scrollY;
+		if (document.querySelector('.filtered-results')) {
+			y_from_top = document.querySelector('.filtered-results').getBoundingClientRect().top;
+		} else {
+			y_from_top = 8675309;
+		}
+	}
+
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
@@ -97,6 +108,8 @@
 		if (parsed_querystring['recipe']) {
 			triggerDetailView(parsed_querystring['recipe']);
 		}
+
+		// scrolltest = document.querySelector('.filtered-results').scrollTop;
 	});
 
 	const handleArrowClick = function(event) {
@@ -116,6 +129,8 @@
 	}
 
 </script>
+
+<svelte:window bind:scrollY/>
 
 <!-- <svelte:head>
   <title>{$$props.title}</title>
@@ -158,7 +173,7 @@
 		<p>{search_term}</p>
 	</div>
 
-	<div class="navigation inline" id="nav">
+	<div class="navigation inline" id="nav" class:fixed="{y_from_top <= 0}" class:inline="{y_from_top > 0}">
 		<div class="top-nav">
 			<a href="http://startribune.com/">
 				<img alt="Star Tribune logo" class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
@@ -184,17 +199,18 @@
 			<div class="filters">
 			  	<h5>Features</h5>
 				{#each features as feature}
-				    <label class="features">
-				  		<input type=checkbox bind:group={checked_features} value={feature}>
-				  		{feature}
-				  	</label>
+				<div class="feature">
+					<input type=checkbox bind:group={checked_features} value={feature}>
+					<label class="features">{feature}</label>
+				</div>
 				{/each}
 
 			  	<h5>Cookie type</h5>
 				{#each cookie_types as type}
-					<label class="type"> {type}
-						<input type=radio bind:group={current_cookie_type} value={type} class:active="{current_cookie_type == true}">
-					</label>
+					<div class="feature">
+						<input type=radio bind:group={current_cookie_type} value={type}>
+						<label class="type">{type}</label>
+					</div>
 				{/each}
 
 				<h4>Clear all filters</h4>
@@ -211,6 +227,27 @@
 </div>
 
 <div class="recipe-wrapper" class:hidden="{detail_view_active == false}">
+	<div class="navigation recipe fixed">
+		<div class="top-nav">
+			<a href="http://startribune.com/">
+				<img alt="Star Tribune logo" class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
+				<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
+			</a>
+			<div class="sharing">
+				<!-- sharing -->
+			</div>
+		</div>
+		<div class="second-nav hide">
+			<div class="condensed-view">
+				<div class="selected-filters">
+					<p>{checked_features} {current_cookie_type}</p>
+				</div>
+				<div class="back" on:click={handleBackClick}>
+					<p>Back</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="customize-controls">
 	      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
 	      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>

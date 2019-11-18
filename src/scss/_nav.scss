@@ -19,6 +19,16 @@ div.navigation {
 			}
 		}	
 	}
+	&.recipe {
+		div.second-nav {
+			div.condensed-view {
+				div.back {
+					display: block;
+					opacity: 1;
+				}
+			}
+		}
+	}
 	div.top-nav {
 		width: 100%;
 		height: 35px;
@@ -138,44 +148,20 @@ div.navigation {
 			height: auto;
 			overflow: hidden;
 		}
-		label.features {
-		    display: inline-block; 
-		    border: 1px solid #006341;
-		    padding: 5px 10px 5px 15px;
-		    line-height: 1;
-		    margin-right: 5px;
-		    margin-bottom: 5px;
-		    border-radius: 10px;
-		    font-size: 14px;
-		    position: relative;
-		    width: auto;
-		    color: #006341;
-		    &.active {
-		    	font-weight: bold;
-		    	border: 2px solid #006341;
-		    	/*input {
-			    	&::before {
-			    		color: white;
-
-			    	}
-			    	&:checked {
-						&::before {
-				    		color: white;
-				    	}
-			    	}
-			    }*/
-		    }
-		    input {
-		    	margin: 0;
-		    	width: 0;
-		    	&::before {
-		    		content: '+';
-		    		position: absolute;
-		    		left: 5px;
-		    		font-weight: bold;
-		    		color: #006341;
-
-		    	}
+		div.feature {
+			/*width: 130px;*/
+			text-align: center;
+			display: inline-block;
+			position: relative;
+			input {
+		    	display: inline;
+		    	opacity: 0;
+		    	position: absolute;
+		    	z-index: 10000;
+		    	left: 0;
+		    	right: 0;
+		    	width: 100%;
+		    	min-height: 25px;
 		    	&:checked {
 					&::before {
 			    		content: '-';
@@ -183,24 +169,50 @@ div.navigation {
 			    	}
 		    	}
 		    }
-		}
-		label.type {
-		    display: inline-block; 
-		    border: 1px solid #006341;
-		    padding: 5px 10px 5px 15px;
-		    line-height: 1;
-		    margin-right: 5px;
-		    margin-bottom: 5px;
-		    border-radius: 10px;
-		    font-size: 14px;
-		    position: relative;
-		    width: auto;
-		    color: #006341;
-		    input {
-		    	margin: 0;
-		    	width: 0;
-		    	opacity: 0;
+		    input:checked + label {
+		    	font-weight: bold;
+			    border: 2px solid #006341;
 		    }
+		    input:checked + label.features::before {
+		    	content: '-';
+		    }
+		    input:selected + label.type {
+		    	font-weight: bold;
+			    border: 2px solid #006341;
+		    }
+		    label.type {
+			    display: inline-block; 
+			    border: 1px solid #006341;
+			    padding: 5px 10px 5px 10px;
+			    line-height: 1;
+			    margin-right: 5px;
+			    margin-bottom: 5px;
+			    border-radius: 10px;
+			    font-size: 14px;
+			    position: relative;
+			    width: auto;
+			    color: #006341;
+			}
+			label.features {
+			    /*display: inline-block; */
+			    border: 1px solid #006341;
+			    padding: 5px 10px 5px 20px;
+			    line-height: 1;
+			    margin-right: 5px;
+			    margin-bottom: 5px;
+			    border-radius: 10px;
+			    font-size: 14px;
+			    position: relative;
+			    width: auto;
+			    color: #006341;
+			    &::before {
+		    		content: '+';
+		    		position: absolute;
+		    		left: 9px;
+		    		color: #006341;
+
+		    	}
+			}
 		}
 		h5 {
 			font-weight: bold;
