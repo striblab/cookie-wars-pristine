@@ -6,7 +6,7 @@
 <div class="recipe-detail">
   <div class="headline">
     <h1>{recipe.name}</h1>
-  </div>  
+  </div>
   <h3 class="blurb">{recipe.summary}</h3>
   <div class="image" style="background: url({recipe.thumbnail}); background-size: cover; background-position: 50% 80%; background-repeat: no-repeat;"></div>
   <!-- <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/> -->
@@ -24,6 +24,7 @@
     <h2>Ingredients</h2>
 
     {@html recipe.ingredients_clean}
+
 
     <h2>Directions</h2>
 
