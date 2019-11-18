@@ -1,7 +1,17 @@
+
 <script>
 	import { onMount } from 'svelte';
 	import { tns } from "../node_modules/tiny-slider/src/tiny-slider"
 	export let slider;
+
+	import Scroller from '@sveltejs/svelte-scroller';
+	let count;
+	let index;
+	let offset;
+	let progress;
+	let top = 0;
+	let threshold = 0;
+	let bottom = 0.9;
 
 	const queryString = require('query-string');
 
@@ -20,9 +30,18 @@
 
 	export let current_recipe;
 
+	export let detail_view_active = false;
+
+	export let filters_hidden = false;
+
+	export const unsubscribe = cookies.subscribe(value => {
+		cookie_list = value;
+	});
+
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
+		detail_view_active = true;
 		console.log(current_recipe);
 		console.log(event.detail);
 		slider.goTo(event.detail.slider_id);
@@ -72,6 +91,7 @@
 	onMount(() => {
 		slider = tns({
 	    container: '#detail-slider',
+	    controlsContainer: "#customize-controls",
 	    items: 1,
 	    slideBy: 'page',
 	    autoplay: false
@@ -82,6 +102,23 @@
 			triggerDetailView(parsed_querystring['recipe']);
 		}
 	});
+
+	const handleArrowClick = function(event) {
+		if (filters_hidden) {
+			filters_hidden = false;
+		} else {
+			filters_hidden = true;
+		}
+	}
+
+	const handleBackClick = function(event) {
+		if (detail_view_active) {
+			detail_view_active = false;
+		} else {
+			detail_view_active = true;
+		}
+	}
+
 </script>
 
 <!-- <svelte:head>
@@ -110,44 +147,81 @@
 	<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-/->
 </svelte:head> -->
 
-<style>
 
-</style>
+<div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
+	<div class="hero">
+		<img src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
+		<h1>holiday cookie contest</h1>
+	</div>
 
-<h1>Star Tribune holiday cookie contest</h1>
+	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
 
-<div>Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</div>
+	<div class="search">
+		<i class="strib-icon strib-search"></i>
+		<input placeholder="ex: cinnamon" bind:value={search_term}/>
+		<p>{search_term}</p>
+	</div>
 
-<div>
-  <input bind:value={search_term}/>
-  <p>{search_term}</p>
-</div>
+	<div class="navigation inline" id="nav">
+		<div class="top-nav">
+			<a href="http://startribune.com/">
+				<img class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
+				<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
+			</a>
+			<div class="sharing">
+				<!-- sharing -->
+			</div>
+		</div>
+		<div class="second-nav" class:hide="{filters_hidden === true}" class:recipe-detail="{detail_view_active == true}">
+			<div class="condensed-view">
+				<div class="selected-filters">
+					<p>{checked_features} {current_cookie_type}</p>
+				</div>
+				<div class="arrow show-more" on:click={handleArrowClick}>
+					<i class="strib-icon strib-nav-forward"></i>
+				</div>
+				<div class="back" on:click={handleBackClick}>
+					<p>Back</p>
+				</div>
+			</div>
 
-<div>
-  <h5>Features</h5>
-  {#each features as feature}
-    <label>
-  		<input type=checkbox bind:group={checked_features} value={feature}>
-  		{feature}
-  	</label>
-  {/each}
-</div>
+			<div class="filters">
+			  	<h5>Features</h5>
+				{#each features as feature}
+				    <label class="features">
+				  		<input type=checkbox bind:group={checked_features} value={feature}>
+				  		{feature}
+				  	</label>
+				{/each}
 
-<div>
-  <h5>Cookie type</h5>
-	{#each cookie_types as type}
-		<label>{type}
-			<input type=radio bind:group={current_cookie_type} value={type}>
-		</label>
+			  	<h5>Cookie type</h5>
+				{#each cookie_types as type}
+					<label class="type"> {type}
+						<input type=radio bind:group={current_cookie_type} value={type} class:active="{current_cookie_type == true}">
+					</label>
+				{/each}
+
+				<h4>Clear all filters</h4>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="filtered-results">
+	{#each filteredRecipes as recipe, list_index}
+		<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
 	{/each}
+	</div>
 </div>
 
-<div id="detail-slider">
-{#each filteredRecipes as recipe}
-	<CookieDetail {recipe}/>
-{/each}
+<div class="recipe-wrapper" class:hidden="{detail_view_active == false}">
+	<div id="customize-controls">
+	      <div class="previous"><i class=" strib-icon strib-nav-back"></i></div>
+	      <div class="next"><i class="strib-icon strib-nav-forward"></i></div>
+	    </div>
+	<div id="detail-slider">
+		{#each filteredRecipes as recipe}
+			<CookieDetail {recipe}/>
+		{/each}
+	</div>
 </div>
-
-{#each filteredRecipes as recipe, list_index}
-	<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
-{/each}

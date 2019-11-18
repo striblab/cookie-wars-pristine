@@ -2,38 +2,39 @@
   export let recipe;
 </script>
 
-<style>
-.recipe-detail {
-  display: inline-block;
-  width: 100%;
-  border: 1px solid #000;
-}
-
-.cookie-thumbnail {
-  width: 200px;
-}
-</style>
-
 {#if recipe}
 <div class="recipe-detail">
-  <h1>{recipe.name}</h1>
-  <div class="blurb">{recipe.year}: {recipe.summary}</div>
-  <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/>
+  <div class="headline">
+    <h1>{recipe.name}</h1>
+  </div>
+  <h3 class="blurb">{recipe.summary}</h3>
+  <div class="image" style="background: url({recipe.thumbnail}); background-size: cover; background-position: 50% 80%; background-repeat: no-repeat;"></div>
+  <!-- <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/> -->
+  <div class="text">
+    <p class="byline">{recipe.year} recipe from <b>{recipe.baker[0].name}</b> of {recipe.baker[0].hometown}.</p>
 
-  <div>{recipe.baker[0].name}</div>
 
-  <div>{recipe.recipe_yield}</div>
+    {#if recipe.notes}
+      <h2>Note</h2>
+      <p class="note">{recipe.notes}</p>
+    {/if}
 
-  <p>{recipe.notes}</p>
+    <p class="yield">{recipe.recipe_yield}</p>
 
-  {@html recipe.ingredients_clean}
+    <h2>Ingredients</h2>
 
-  <h2>Directions</h2>
+    {@html recipe.ingredients_clean}
 
-  {@html recipe.procedure_clean}
 
-  <h2>From the baker</h2>
+    <h2>Directions</h2>
 
-  <p>{recipe.baker_bio_notes}</p>
+    {@html recipe.procedure_clean}
+
+    {#if recipe.baker_bio_notes}
+      <h2>From the baker</h2>
+
+      <p>{recipe.baker_bio_notes}</p>
+    {/if}
+  </div>
 </div>
 {/if}

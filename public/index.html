@@ -7,11 +7,21 @@
 	<title>Test</title>
 
 	<link rel='icon' type='image/png' href='favicon.png'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
 	<link rel='stylesheet' href='global.css'>
 	<link rel='stylesheet' href='bundle.css'>
+	<link rel="stylesheet" href="//static.startribune.com/assets/libs/strib-icons/0.0.10/strib-icons.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </head>
 
 <body>
+	<script type="text/javascript">
+		$('.features input').click(function(){
+			$(this).parent().toggleClass(active);
+		})
+	</script>
+
 	<script src='bundle.js'></script>
 </body>
 </html>
