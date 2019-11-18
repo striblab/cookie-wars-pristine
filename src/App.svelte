@@ -34,10 +34,6 @@
 
 	export let filters_hidden = false;
 
-	export const unsubscribe = cookies.subscribe(value => {
-		cookie_list = value;
-	});
-
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
@@ -150,7 +146,7 @@
 
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
-		<img src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
+		<img alt="Star Tribune logo" src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
 		<h1>holiday cookie contest</h1>
 	</div>
 
@@ -165,7 +161,7 @@
 	<div class="navigation inline" id="nav">
 		<div class="top-nav">
 			<a href="http://startribune.com/">
-				<img class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
+				<img alt="Star Tribune logo" class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
 				<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
 			</a>
 			<div class="sharing">
