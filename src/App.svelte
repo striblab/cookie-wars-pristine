@@ -161,8 +161,11 @@
 
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
-		<img alt="Star Tribune logo" src="http://static.startribune.com/images/icons/startribune-logo-black.svg" class="logo">
-		<h1>holiday cookie contest</h1>
+		<!-- <img src="http://static.startribune.com/images/cookiehero/cookiegif.gif" class="cookieimg one"> -->
+		<div class="headline">
+			<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
+			<h1><span>holiday cookie contest</span></h1>
+		</div>
 	</div>
 
 	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
@@ -177,7 +180,7 @@
 		<div class="top-nav">
 			<a href="http://startribune.com/">
 				<img alt="Star Tribune logo" class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
-				<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
+				<!-- <img class="logo black" src=""> -->
 			</a>
 			<div class="sharing">
 				<!-- sharing -->
@@ -220,9 +223,11 @@
 
 
 	<div class="filtered-results">
-	{#each filteredRecipes as recipe, list_index}
-		<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
-	{/each}
+		<div class="row-grid">
+			{#each filteredRecipes as recipe, list_index}
+				<CookieThumb on:recipe_selected={showDetail} {recipe} {list_index}/>
+			{/each}
+		</div>
 	</div>
 </div>
 
