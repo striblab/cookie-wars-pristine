@@ -18,7 +18,6 @@ div.navigation {
 				opacity: 0;
 			}
 			&.hide {
-
 				div.filters {
 					height: auto;
 					overflow: hidden;
@@ -189,45 +188,6 @@ div.navigation {
 			height: auto;
 			overflow: hidden;
 		}
-<<<<<<< HEAD
-		label.features {
-		    display: inline-block;
-		    border: 1px solid #006341;
-		    padding: 5px 10px 5px 15px;
-		    line-height: 1;
-		    margin-right: 5px;
-		    margin-bottom: 5px;
-		    border-radius: 10px;
-		    font-size: 14px;
-		    position: relative;
-		    width: auto;
-		    color: #006341;
-		    &.active {
-		    	font-weight: bold;
-		    	border: 2px solid #006341;
-		    	/*input {
-			    	&::before {
-			    		color: white;
-
-			    	}
-			    	&:checked {
-						&::before {
-				    		color: white;
-				    	}
-			    	}
-			    }*/
-		    }
-		    input {
-		    	margin: 0;
-		    	width: 0;
-		    	&::before {
-		    		content: '+';
-		    		position: absolute;
-		    		left: 5px;
-		    		font-weight: bold;
-		    		color: #006341;
-
-=======
 		div.feature {
 			/*width: 130px;*/
 			text-align: center;
@@ -246,7 +206,6 @@ div.navigation {
 		    	min-height: 25px;
 		    	&:hover {
 		    		cursor: pointer;
->>>>>>> more-ui
 		    	}
 		    	&:checked {
 					&::before {
@@ -255,25 +214,6 @@ div.navigation {
 			    	}
 		    	}
 		    }
-<<<<<<< HEAD
-		}
-		label.type {
-		    display: inline-block;
-		    border: 1px solid #006341;
-		    padding: 5px 10px 5px 15px;
-		    line-height: 1;
-		    margin-right: 5px;
-		    margin-bottom: 5px;
-		    border-radius: 10px;
-		    font-size: 14px;
-		    position: relative;
-		    width: auto;
-		    color: #006341;
-		    input {
-		    	margin: 0;
-		    	width: 0;
-		    	opacity: 0;
-=======
 		    input:checked + label {
 		    	font-weight: bold;
 			    border: 2px solid #006341;
@@ -284,7 +224,6 @@ div.navigation {
 		    input:selected + label.type {
 		    	font-weight: bold;
 			    border: 2px solid #006341;
->>>>>>> more-ui
 		    }
 		    label.type {
 			    display: inline-block;
@@ -316,7 +255,6 @@ div.navigation {
 		    		position: absolute;
 		    		left: 9px;
 		    		color: #006341;
-
 		    	}
 			}
 			label.features, label.type {
@@ -347,12 +285,10 @@ div.navigation {
 		}
 	}
 }
-
 svelte-scroller-background-container.svelte-ihz62u {
 	z-index: 10000 !important;
 	margin-bottom: 100px;
 }
-
 svelte-scroller-foreground {
 	padding-top: 400px;
 }
