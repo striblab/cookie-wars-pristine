@@ -30,10 +30,10 @@
 
     {@html recipe.procedure_clean}
 
-    {#if recipe.baker_bio_notes}
+    {#if recipe.baker_bio_notes_clean}
       <h2>From the baker</h2>
 
-      <p>{recipe.baker_bio_notes}</p>
+      <p>{@html recipe.baker_bio_notes_clean}</p>
     {/if}
   </div>
 </div>
