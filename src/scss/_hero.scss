@@ -1,24 +1,43 @@
 div.hero {
-	height: 100vh;
+	height: auto;
 	width: 100%;
-	background: url(http://ststatic.stimg.co/images/heroimg.jpg?w=1000);
-	background-size: cover;
-	background-position: 50% 100%;
+	margin: 0 auto;
+	max-width: 1000px;
+	/*background: url(http://ststatic.stimg.co/images/cookiehero/08_1009934435_359COOKIE120519_56739205.png);*/
 	text-align: center;
 	padding-top: 60px;
-	img.logo {
-		height: 25px;
-	}
-	h1 {
-		font-family: "Popular";
-		font-weight: bold;
-		text-transform: uppercase;
-		width: 250px;
-		margin: 0 auto;
-		line-height: 1;
-		font-size: 42px;
-		margin-top: 30px;
-	}
+	margin-bottom: 60px;
+	/*overflow: hidden;*/
+	position: relative;
+	/*background: #922B21;*/
+	div.headline {
+		/*position: absolute;
+		left: 50%;
+		top: 45%;
+		transform: translateX(-50%) translateY(-50%);*/
+		img.logo {
+			height: 35px;
+		}
+		h1 {
+			font-family: "Popular";
+			font-weight: bold;
+			text-transform: uppercase;
+			margin: 0 auto;
+			line-height: 0.8;
+			font-size: 12.5vw;
+			margin-top: 30px;
+			letter-spacing: -2px;
+			color: transparent;
+			background: url(http://ststatic.stimg.co/images/cookiehero/08_1009934435_359COOKIE120519_56739205.png);
+			background-size: cover;
+			background-position: 50% 50%;
+			background-clip: text;
+  			-webkit-background-clip: text;
+			/*span {
+				border-bottom: 4px solid #006341;
+			}*/
+		}
+	}	
 }
 
 div.hero-wrapper {
@@ -36,16 +55,23 @@ body {
 h2.subhead {
 	width: 85%;
 	margin: 0 auto;
+	max-width: 600px;
 	font-weight: normal;
 	font-size: 18px;
 	margin-top: 30px;
 	text-align: center;
+	@media (min-width: 601px) {
+		width: 600px;
+		font-size: 24px;
+		margin-bottom: 50px;
+	}
 }
 
 div.search {
 	width: 85%;
 	margin: 0 auto;
 	position: relative;
+	max-width: 600px;
 	/*margin-bottom: -50px;*/
 	z-index: 100;
 	.strib-search {
@@ -55,6 +81,9 @@ div.search {
 		top: 40px;
 		height: 10px;
 		color: gray;
+		@media (min-width: 601px) {
+			font-size: 20px;
+		}
 	}
 	input {
 		width: 100%;
@@ -64,5 +93,13 @@ div.search {
 		border-right: 1px solid white;
 		border-top: 1px solid white;
 		border-bottom: 1px solid gray;
+		@media (min-width: 601px) {
+			font-size: 20px;
+		}
+		&:focus {
+			outline: none;
+			color: black;
+			border-bottom: 1px solid black;
+		}
 	}
 }
