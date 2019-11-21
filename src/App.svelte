@@ -22,7 +22,7 @@
 	export let cookie_list = CookieData;
 	export let search_term = '';
 
-	export let features = ['Winner', 'Easy', 'Chocolate', 'Fruit', 'Nut', 'International', 'Fun with kids']
+	export let features = ['Winner', 'Easy', 'Chocolate', 'Fruit', 'Nut', 'International', 'Fun with kids'];
 	export let checked_features = features;
 
 	export let cookie_types = ['Any', 'Rolled', 'Bar', 'Drop', 'Refrigerator'];
@@ -97,6 +97,10 @@
 		if (parsed_querystring['recipe']) {
 			triggerDetailView(parsed_querystring['recipe']);
 		}
+
+			// $('.features input').click(function(){
+			// 	$(this).parent().toggleClass(active);
+			// });
 	});
 
 	const handleArrowClick = function(event) {

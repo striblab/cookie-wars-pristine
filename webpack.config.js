@@ -2,6 +2,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 const WebpackNotifierPlugin = require('webpack-notifier');
+const AWS = require('aws-sdk');
+const S3Plugin = require('webpack-s3-plugin')
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -102,6 +104,17 @@ module.exports = {
 			filename: '[name].css'
 		}),
     new WebpackNotifierPlugin(),
+		new S3Plugin({
+      // Exclude uploading of html
+      exclude: /.*\.html$/,
+      // s3Options are required
+      s3Options: {
+        credentials: new AWS.SharedIniFileCredentials({profile: 'default'})
+      },
+      s3UploadOptions: {
+        Bucket: 'static.startribune.com/news/projects/all/20191106-cookie-wars/build'
+      }
+    })
 	],
 	devtool: prod ? false: 'source-map'
 };
