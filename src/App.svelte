@@ -32,7 +32,7 @@
 
 	export let detail_view_active = false;
 
-	export let filters_hidden = false;
+	export let filters_hidden = true;
 
 	export let scrollY;
 	export let y_from_top;
@@ -186,7 +186,7 @@
 				<!-- sharing -->
 			</div>
 		</div>
-		<div class="second-nav" class:hide="{filters_hidden === true}" class:recipe-detail="{detail_view_active == true}">
+		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">
 			<div class="condensed-view">
 				<div class="selected-filters">
 					<p>{checked_features} {current_cookie_type}</p>
