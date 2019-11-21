@@ -63,7 +63,7 @@
 			match = false;
 		}
 
-		let search_blob = recipe.name + ' ' + recipe.baker[0].name + ' ' + recipe.ingredients;
+		let search_blob = recipe.name + ' ' + recipe.baker[0].name + ' ' + recipe.ingredients_clean + ' ' + recipe.year ;
 		if (search_term != '' && search_blob.toLowerCase().indexOf(search_term.toLowerCase()) === -1) {
 			match = false;
 		}
@@ -180,7 +180,7 @@
 		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">
 			<div class="condensed-view">
 				<div class="selected-filters">
-					<p>{checked_features} {current_cookie_type}</p>
+					<p>{checked_features}</p>
 				</div>
 				<div class="arrow show-more" on:click={handleArrowClick}>
 					<i class="strib-icon strib-nav-forward"></i>

@@ -18,7 +18,7 @@
 </script>
 
 
-<div class="cookie"  on:click="{selectRecipe}" id="{recipe.id}" slider_id="{list_index}" style="background: url({recipe.thumbnail}); background-size: cover; background-position: 50% 80%; background-repeat: no-repeat;">
+<div class="cookie"  on:click="{selectRecipe}" id="{recipe.id}" slider_id="{list_index}" style="background: url({recipe.thumbnail}) 50% 80% / cover no-repeat;">
   <div class="text">
     <h5>{recipe.year}</h5>
     <h3>{recipe.name}</h3>
