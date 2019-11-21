@@ -36,6 +36,15 @@
 		}
 	}
 
+	export let checked_features_str = '';
+	$: {
+		if (checked_features.length > 3) {
+			checked_features_str = checked_features.slice(0, 3).join(', ') + ' ...';
+		} else {
+			checked_features_str = checked_features.join(', ')
+		}
+	}
+
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
@@ -180,7 +189,7 @@
 		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">
 			<div class="condensed-view">
 				<div class="selected-filters">
-					<p>{checked_features}</p>
+					<p>{checked_features_str}</p>
 				</div>
 				<div class="arrow show-more" on:click={handleArrowClick}>
 					<i class="strib-icon strib-nav-forward"></i>
@@ -194,7 +203,7 @@
 			  	<h5>Features</h5>
 				{#each features as feature}
 				<div class="feature">
-					<input type=checkbox bind:group={checked_features} value={feature}>
+					<input type=checkbox bind:group={checked_features} value={feature} class:all-selected="{features == checked_features}">
 					<label class="features">{feature}</label>
 				</div>
 				{/each}
