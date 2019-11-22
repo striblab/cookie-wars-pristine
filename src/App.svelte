@@ -175,9 +175,7 @@
 	
 	<div class="sponsor">
 		<p>With Support From</p>
-		<div class="ad-container-sponsor">
-			<div id="div-gpt-ad-7442209-1" data-google-query-id="CKatyfjY_uUCFUo9TwodT3QMcw"></div>
-		</div>
+			<div id="div-gpt-ad-7442209-1"></div>
 	</div>
 
 	<div class="search">

@@ -94,7 +94,15 @@ h2.subhead {
 		margin-bottom: 50px;
 	}
 }
-
+.clean-sheet {
+	.sponsor {
+		div {
+			width:auto;
+			height:auto;
+			background-color:transparent;
+		}
+	}
+}
 .sponsor {
 	width: 260px;
 	margin: 0 auto 75px auto;
@@ -108,9 +116,11 @@ h2.subhead {
     color: #888;
     letter-spacing: .75px;
     margin: 0;
-    font-size: .65em;
+    font-size: .8em;
 	}
 	div {
+		height:46px;
+		width:260px;
 		background-color:#efefef;
 	}
 }
