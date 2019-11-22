@@ -94,15 +94,34 @@ h2.subhead {
 		margin-bottom: 50px;
 	}
 }
-
-div.ad {
-	width: 300px;
-	height: 50px;
-	background: red;
-	margin: 0 auto;
+.clean-sheet {
+	.sponsor {
+		div {
+			width:auto;
+			height:auto;
+			background-color:transparent;
+		}
+	}
+}
+.sponsor {
+	width: 260px;
+	margin: 0 auto 75px auto;
 	margin-bottom: 75px;
 	@media (min-width: 601px) {
 		margin-bottom: 125px;
+	}
+	p {
+		text-align: center;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: .75px;
+    margin: 0;
+    font-size: .8em;
+	}
+	div {
+		height:46px;
+		width:260px;
+		background-color:#efefef;
 	}
 }
 
