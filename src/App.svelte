@@ -168,6 +168,14 @@
 		</div>
 	</div>
 
+	<!-- Start Logo Sponsor Body Tag -->
+  <div id='div-gpt-ad-7442209-1'>
+    <script>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-7442209-1'); });
+    </script>
+  </div>
+	<!-- End Body Tag -->
+
 	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
 
 	<div class="search">
