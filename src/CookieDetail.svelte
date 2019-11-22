@@ -13,6 +13,12 @@
   <div class="text">
     <p class="byline">{recipe.year} recipe from <b>{recipe.baker[0].name}</b> of {recipe.baker[0].hometown}.</p>
 
+    <div class="print share" onclick="window.print();return false;">
+      <p>Print recipe</p>
+    </div>
+    <div class="email share">
+       <p>Email recipe</p>
+    </div>
 
     {#if recipe.notes}
       <h2>Note</h2>

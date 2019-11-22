@@ -170,10 +170,13 @@
 
 	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
 
+	<div class="ad">
+	</div>
+
 	<div class="search">
+		<h5>Search</h5>
 		<i class="strib-icon strib-search"></i>
 		<input placeholder="ex: cinnamon" bind:value={search_term}/>
-		<p>{search_term}</p>
 	</div>
 
 	<div class="navigation inline" id="nav" class:fixed="{y_from_top <= 0}" class:inline="{y_from_top > 0}">
@@ -245,7 +248,7 @@
 		<div class="second-nav hide">
 			<div class="condensed-view">
 				<div class="selected-filters">
-					<p>{checked_features} {current_cookie_type}</p>
+					<p>{checked_features_str}</p>
 				</div>
 				<div class="back" on:click={handleBackClick}>
 					<p>Back</p>
