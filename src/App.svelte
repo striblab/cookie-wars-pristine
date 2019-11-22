@@ -27,6 +27,7 @@
 
 	export let scrollY;
 	export let y_from_top;
+
 	$: {
 		let happy = scrollY;
 		if (document.querySelector('.filtered-results')) {
@@ -64,7 +65,9 @@
 				feature_matches = true;
 			}
 		});
-		if (!feature_matches) {
+		if (checked_features.length == 0) {
+			match = true;
+		} else if (!feature_matches) {
 			match = false;
 		}
 
