@@ -49,10 +49,15 @@
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
+
 		detail_view_active = true;
 		console.log(current_recipe);
 		console.log(event.detail);
 		slider.goTo(event.detail.slider_id);
+
+		console.log('hello', current_recipe.name);
+		console.log(window.gtag("event", "Recipe click", {'event_category': 'Cookie contest', 'event_label': current_recipe.name}));
+
 	}
 
 	// Search/filter functions
@@ -112,7 +117,11 @@
 			triggerDetailView(parsed_querystring['recipe']);
 		}
 
-		// scrolltest = document.querySelector('.filtered-results').scrollTop;
+		window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+		window.gtag = gtag;
+	  gtag('js', new Date());
+	  gtag('config', 'UA-114906116-1');
 	});
 
 	const handleArrowClick = function(event) {
