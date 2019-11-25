@@ -183,10 +183,10 @@ body {
 
 // Project specific styles.  Split styles into files per component
 
+@import 'global';
 @import 'main';
 @import 'nav';
 @import 'hero';
 @import 'thumb';
 @import 'detail';
 @import 'print';
-
