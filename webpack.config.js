@@ -112,7 +112,7 @@ module.exports = {
 		    staging: {
 		      region: 'us-west-1',
 		      params: {
-		        Bucket: 'static.startribune.com/news/projects/all/',
+		        Bucket: 'static.startribune.com/staging/news/projects/all/20191106-cookie-wars/build',
 		        DistributionId: 'BUCKETIDHERE'
 		      }
 		    },
