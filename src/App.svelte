@@ -135,33 +135,6 @@
 
 <svelte:window bind:scrollY/>
 
-<!-- <svelte:head>
-  <title>{$$props.title}</title>
-  <meta name="description" content="Looking for a new cookie recipe this holiday season? Browse 16 years of winning recipes on our cookie finder." />
-  <meta property="og:site_name" content="Star Tribune" />
-	<meta property="og:type" content="article" />
-  <meta property="og:title" content="Holiday cookie finder: Over 80 winning recipes" /><!-- fb, linkedin, pinterest -->
-  <meta property="og:description" content="Looking for a new cookie recipe this holiday season? Browse 16 years of winning recipes on our cookie finder." /><!-- fb, linkedin, pinterest -->
-  <meta property="og:url" content="http://www.startribune.com/holiday-cookie-finder-over-80-winning-recipes/353038401/" />
-  <meta property="og:image" content="http://stmedia.stimg.co/cooky2015.jpg?h=630&amp;w=1200&amp;fit=crop&amp;bg=999&amp;crop=faces" /><!-- fb, linkedin, pinterest -->
-  <meta property="og:image:url" content="http://stmedia.stimg.co/cooky2015.jpg?h=630&amp;w=1200&amp;fit=crop&amp;bg=999&amp;crop=faces" /><!-- fb, linkedin, pinterest -->
-  <meta property="og:image:width" content="1200" /><!-- fb, linkedin, pinterest -->
-  <meta property="og:image:height" content="630" /><!-- fb, linkedin, pinterest -->
-
-  <meta name="twitter:site" content="@StarTribune" />
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta name="twitter:title" content="Holiday cookie finder: Over 80 winning recipes" /><!-- twitter -->
-  <meta name="twitter:description" content="Looking for a new cookie recipe this holiday season? Browse 16 years of winning recipes on our cookie finder." /><!-- twitter -->
-  <meta name="twitter:url" content="http://www.startribune.com/holiday-cookie-finder-over-80-winning-recipes/353038401/" /><!-- twitter -->
-  <meta name="twitter:image" content="http://stmedia.stimg.co/cooky2015.jpg?h=630&amp;w=1200&amp;fit=crop&amp;bg=999&amp;crop=faces"><!-- twitter -->
-  <meta name="twitter:image:src" content="http://stmedia.stimg.co/cooky2015.jpg?h=630&amp;w=1200&amp;fit=crop&amp;bg=999&amp;crop=faces"><!-- twitter -->
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
-	<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.helper.ie8.js"></script><![endif]-/->
-</svelte:head> -->
-
-
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
 		<!-- <img src="http://static.startribune.com/images/cookiehero/cookiegif.gif" class="cookieimg one"> -->
@@ -170,9 +143,9 @@
 			<h1><span>holiday cookie contest</span></h1>
 		</div>
 	</div>
-	
+
 	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
-	
+
 	<div class="sponsor">
 		<p>With Support From</p>
 			<div id="div-gpt-ad-7442209-1"></div>
