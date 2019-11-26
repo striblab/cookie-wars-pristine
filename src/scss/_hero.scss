@@ -10,30 +10,25 @@ div.hero {
 	margin: 0 auto;
 	max-width: 1000px;
 	text-align: center;
-	padding-top: 60px;
-	margin-bottom: 60px;
+	padding-top: 150px;
+	margin-bottom: 20px;
 	position: relative;
-	@media (max-width: 1001px) {
-		background: url(http://ststatic.stimg.co/images/cookiehero/08_1009934435_359COOKIE120519_56739205.png) 50% 50% / cover no-repeat;
-		height: 100vh;
+	/*@media (min-width: 701px) {
+		font-size: 45px;
+		margin-top: 20px;
+	}*/
+	img.cookieimg {
+		width: 250px;
+		margin-bottom: 80px;
 	}
 	div.headline {
 		position: relative;
-		@media (max-width: 1000px) {
-			position: absolute;
-			left: 50%;
-			top: 45%;
-			transform: translateX(-50%) translateY(-50%);
-			background: white;
-			padding: 20px;
-		}
-		
 		img.logo {
 			height: 25px;
 			margin-bottom: 0px;
 			@media (min-width: 1001px) {
-				height: 30px;
-				margin-bottom: 40px;
+				height: 26px;
+				margin-bottom: 10px;
 			}
 			@media (max-width: 701px) {
 				height: 22px;
@@ -46,18 +41,10 @@ div.hero {
 			margin: 0 auto;
 			line-height: 1;
 			font-size: 65px;
-			margin-top: 30px;
+			margin-top: 10px;
+			margin-bottom: 0;
 			@media (min-width: 1001px) {
-				font-size: 200px;
-				color: transparent;
-				background: url(http://ststatic.stimg.co/images/cookiehero/08_1009934435_359COOKIE120519_56739205.png);
-				background-size: cover;
-				background-position: 60% 20%;
-				background-clip: text;
-	  			-webkit-background-clip: text;
-	  			filter: brightness(0.9);
-	  			line-height: 0.8;
-	  			letter-spacing: -2px;
+				font-size: 60px;
 			}
 			@media (max-width: 701px) {
 				font-size: 45px;
@@ -75,23 +62,18 @@ div.hero-wrapper {
 	}
 }
 
-body {
-	background: rgba(254, 245, 231, 0.1);
-}
-
 h2.subhead {
 	width: 85%;
 	margin: 0 auto;
-	max-width: 600px;
+	max-width: 800px;
 	font-weight: normal;
 	font-size: 18px;
-	margin-top: 30px;
+	margin-top: 0px;
 	text-align: center;
 	margin-bottom: 40px;
 	@media (min-width: 601px) {
-		width: 600px;
 		font-size: 24px;
-		margin-bottom: 50px;
+		margin-bottom: 100px;
 	}
 }
 .clean-sheet {

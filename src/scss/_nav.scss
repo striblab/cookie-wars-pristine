@@ -7,6 +7,7 @@ div.navigation {
 		position: fixed;
 		top: 0;
 		z-index: 1000;
+		left: 0;
 	}
 	&.inline {
 		div.top-nav {
@@ -80,7 +81,7 @@ div.navigation {
 		margin: 0 auto;
 		box-sizing: border-box;
 		@media (min-width: 701px) {
-			width: 500px;
+			width: 550px;
 			padding-left: 5%;
 			padding-right: 5%;
 			position: absolute;
@@ -294,11 +295,4 @@ div.navigation {
 			}
 		}
 	}
-}
-svelte-scroller-background-container.svelte-ihz62u {
-	z-index: 10000 !important;
-	margin-bottom: 100px;
-}
-svelte-scroller-foreground {
-	padding-top: 400px;
 }

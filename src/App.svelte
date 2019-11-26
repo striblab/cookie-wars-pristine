@@ -146,7 +146,7 @@
 
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
-		<!-- <img src="http://static.startribune.com/images/cookiehero/cookiegif.gif" class="cookieimg one"> -->
+		<img src="http://static.startribune.com/images/cookiehero/cookiegif-2.gif" class="cookieimg one">
 		<div class="headline">
 			<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
 			<h1><span>holiday cookie contest</span></h1>

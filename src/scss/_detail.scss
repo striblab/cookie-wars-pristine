@@ -117,7 +117,7 @@ div.recipe-detail {
 	    text-align: center;
 	    width: 85px;
 	    transition: 0.5s all;
-	    &.print {
+	    &.printer {
 			@media (max-width: 700px) {
 				display: none;
 			}
