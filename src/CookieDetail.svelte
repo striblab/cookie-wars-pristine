@@ -2,6 +2,11 @@
   export let recipe;
 </script>
 
+<style type="text/css" media="print">
+    body {visibility:hidden;}
+    .print {visibility:visible; position: static}
+</style>
+
 <div class="print">
   <h1>{recipe.name}</h1>
   <p class="byline">{recipe.year} recipe from <b>{recipe.baker[0].name}</b> of {recipe.baker[0].hometown}.</p>
