@@ -39,7 +39,10 @@
 
 	export let checked_features_str = '';
 	$: {
-		if (checked_features.length > 3) {
+		if (checked_features.length < 1) {
+			checked_features_str = 'None';
+		}
+		else if (checked_features.length > 3) {
 			checked_features_str = checked_features.slice(0, 3).join(', ') + ' ...';
 		} else {
 			checked_features_str = checked_features.join(', ')
