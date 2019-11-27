@@ -17,7 +17,10 @@
       <p>Print recipe</p>
     </div>
     <div class="email share">
-       <p>Email recipe</p>
+      <a href="mailto:?subject={recipe.name}&body={recipe.name}%0D%0A
+      %0D%0A{recipe.summary}%0D%0A%0D%0A{recipe.recipe_yield}%0D%0A%0D%0AGet the recipe at http://startribune.com/x/star-tribune-cookie-contest/564807802?recipe={recipe.id}">
+        <p>Email recipe</p>
+      </a>
     </div>
 
     {#if recipe.notes}
