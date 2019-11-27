@@ -221,7 +221,6 @@ div.navigation {
 		    	&:checked {
 					&::before {
 			    		content: '-';
-			    		color: #006341;
 			    	}
 		    	}
 		    }
@@ -238,7 +237,7 @@ div.navigation {
 		    }
 		    label.type {
 			    display: inline-block;
-			    border: 1px solid #006341;
+			    border: 1px solid #a0a0a0; /*was 006341 */
 			    padding: 5px 10px 5px 10px;
 			    line-height: 1;
 			    margin-right: 5px;
@@ -247,11 +246,11 @@ div.navigation {
 			    font-size: 14px;
 			    position: relative;
 			    width: auto;
-			    color: #006341;
+			    color: #a0a0a0; /*was 006341 */
 			}
 			label.features {
 			    /*display: inline-block; */
-			    border: 1px solid #006341;
+			    border: 1px solid #a0a0a0; /*was 006341 */
 			    padding: 5px 10px 5px 20px;
 			    line-height: 1;
 			    margin-right: 5px;
