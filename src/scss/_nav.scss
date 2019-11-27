@@ -218,19 +218,20 @@ div.navigation {
 		    	&:hover {
 		    		cursor: pointer;
 		    	}
-		    	&:checked {
+		    	/*&:checked {
 					&::before {
 			    		content: '-';
 			    	}
-		    	}
+		    	}*/
 		    }
 		    input:checked + label {
 		    	font-weight: bold;
 			    border: 2px solid #006341;
+			    color: #006341;
 		    }
-		    input:checked + label.features::before {
+		   /* input:checked + label.features::before {
 		    	content: '-';
-		    }
+		    }*/
 		    input:selected + label.type {
 		    	font-weight: bold;
 			    border: 2px solid #006341;
@@ -251,7 +252,7 @@ div.navigation {
 			label.features {
 			    /*display: inline-block; */
 			    border: 1px solid #a0a0a0; /*was 006341 */
-			    padding: 5px 10px 5px 20px;
+			    padding: 5px 10px 5px 10px;
 			    line-height: 1;
 			    margin-right: 5px;
 			    margin-bottom: 5px;
@@ -259,13 +260,13 @@ div.navigation {
 			    font-size: 14px;
 			    position: relative;
 			    width: auto;
-			    color: #006341;
-			    &::before {
+			    color: #a0a0a0;
+			    /*&::before {
 		    		content: '+';
 		    		position: absolute;
 		    		left: 9px;
 		    		color: #006341;
-		    	}
+		    	}*/
 			}
 			label.features, label.type {
 				@media (min-width: 701px) {
