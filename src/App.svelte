@@ -9,6 +9,7 @@
 	import CookieData from './data/cookies.json'
 	import CookieThumb from './CookieThumb.svelte';
 	import CookieDetail from './CookieDetail.svelte';
+	import Sharing from './Sharing.svelte';
 
 	export let cookie_list = CookieData;
 	export let search_term = '';
@@ -214,8 +215,7 @@
 				<!-- <img class="logo black" src=""> -->
 			</a>
 			<div class="sharing">
-				<!-- share -->
-				
+				<Sharing/>
 			</div>
 		</div>
 		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">
@@ -279,7 +279,7 @@
 				<!-- <img class="logo black" src="http://static.startribune.com/images/icons/startribune-logo-black.svg"> -->
 			</a>
 			<div class="sharing">
-				<!-- sharing -->
+				<Sharing/>
 			</div>
 		</div>
 		<div class="second-nav hide">
