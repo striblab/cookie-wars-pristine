@@ -63,6 +63,11 @@
 
 	}
 
+	export const clearFilters = function (event) {
+		checked_features = [];
+		current_cookie_type = 'Any';
+	}
+
 	// Search/filter functions
 	$: filteredRecipes = cookie_list.filter(recipe => {
 		let match = true;
@@ -209,7 +214,7 @@
 					</div>
 				{/each}
 
-				<h4>Clear all filters</h4>
+				<h4><a href="Javascript:;" on:click={clearFilters}>Clear all filters</a></h4>
 			</div>
 		</div>
 	</div>
