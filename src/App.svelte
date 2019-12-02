@@ -22,11 +22,11 @@
 	export let current_recipe;
 
 	export let detail_view_active = false;
-
 	export let filters_hidden = true;
 
 	export let scrollY;
 	export let y_from_top;
+
 	export let search_timeout;
 	export let previous_search_term = '';
 
@@ -55,6 +55,7 @@
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
 		detail_view_active = true;
 		slider.goTo(event.detail.slider_id);
+		history.pushState(event.detail, event.detail.id, '?recipe=' + event.detail.id);
 		window.gtag("event", "Recipe click", {'event_category': 'Cookie contest', 'event_label': current_recipe.name});
 	}
 
@@ -88,11 +89,6 @@
 			match = false;
 		}
 
-		// TODO: Wait x ms If this is a search log Google event
-		// if (search_term != '') {
-		// 	window.gtag("event", "Search", {'event_category': 'Cookie contest', 'event_label': search_term});
-		// }
-
 		return match;
 	});
 
@@ -109,7 +105,12 @@
 	}
 
 	window.onpopstate = function(event) {
-		triggerDetailView(event.state.id);
+		console.log('pop!', event);
+		if (event.state.id) {
+			triggerDetailView(event.state.id);
+		} else {
+			detail_view_active = false;
+		}
 	};
 
 	onMount(() => {
@@ -121,9 +122,17 @@
 	    autoplay: false
 	  });
 
+		slider.events.on('indexChanged', function (event) {
+			// Push state change
+			let detail_state = {
+				id: cookie_list[event.index-1].id,
+	      slider_id: event.index-1
+			}
+			history.pushState(detail_state, detail_state.id, '?recipe=' + detail_state.id);
+		});
+
 		const parsed_querystring = queryString.parse(location.search);
 		if (parsed_querystring['recipe']) {
-			console.log(parsed_querystring['recipe']);
 			triggerDetailView(parsed_querystring['recipe']);
 		}
 
@@ -134,6 +143,25 @@
 	  gtag('config', 'UA-114906116-1');
 	});
 
+	const handleArrowClick = function(event) {
+		if (filters_hidden) {
+			filters_hidden = false;
+		} else {
+			filters_hidden = true;
+		}
+	}
+
+	const handleBackClick = function(event) {
+		detail_view_active = false;
+		history.pushState({}, 'main view', '/');
+		// if (detail_view_active) {
+		// 	detail_view_active = false;
+		// } else {
+		// 	detail_view_active = true;
+		// }
+	}
+
+	// Google Analytics section
 	const logFeatureClick = function (event) {
 		let event_action = event.target.checked ? 'Feature selected' : 'Feature de-selected';
 		window.gtag("event", event_action, {'event_category': 'Cookie contest', 'event_label': event.target.value});
@@ -151,22 +179,6 @@
 				window.gtag("event", "Cookie search", {'event_category': 'Cookie contest', 'event_label': event.target.value});
 			}
 		}, 1000);
-	}
-
-	const handleArrowClick = function(event) {
-		if (filters_hidden) {
-			filters_hidden = false;
-		} else {
-			filters_hidden = true;
-		}
-	}
-
-	const handleBackClick = function(event) {
-		if (detail_view_active) {
-			detail_view_active = false;
-		} else {
-			detail_view_active = true;
-		}
 	}
 
 </script>
