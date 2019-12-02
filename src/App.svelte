@@ -177,6 +177,7 @@
 			</a>
 			<div class="sharing">
 				<!-- share -->
+				
 			</div>
 		</div>
 		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">
