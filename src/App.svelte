@@ -153,7 +153,7 @@
 
 	const handleBackClick = function(event) {
 		detail_view_active = false;
-		history.pushState({}, 'main view', '/');
+		history.pushState({}, 'main view', '?');
 		// if (detail_view_active) {
 		// 	detail_view_active = false;
 		// } else {
