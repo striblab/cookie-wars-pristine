@@ -14,7 +14,7 @@
 	export let search_term = '';
 
 	export let features = ['Winner', 'Easy', 'Chocolate', 'Fruit', 'Nut', 'International', 'Fun with kids'];
-	export let checked_features = features;
+	export let checked_features = [];
 
 	export let cookie_types = ['Any', 'Rolled', 'Bar', 'Drop', 'Refrigerator'];
 	export let current_cookie_type = 'Any';
