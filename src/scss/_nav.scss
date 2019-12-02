@@ -185,13 +185,26 @@ div.navigation {
 				color: #797D7F;
 				p {
 					font-weight: bold;
-					font-size: 11px;
+					font-size: 10px;
 					text-transform: uppercase;
 					letter-spacing: 0.5px;
 					margin: 0;
+					border: 1px solid #797D7F;
+				    padding: 5px 5px 5px 5px;
+				    border-radius: 5px;
+				    line-height: 1;
+				    transition: 0.5s all;
+					i {
+						padding-right: 3px;
+					}
 				}
 				&:hover {
 					cursor: pointer;
+					p {
+						background: #797D7F;
+						color: white;
+						transition: 0.5s all;
+					}
 				}
 			}
 		}
