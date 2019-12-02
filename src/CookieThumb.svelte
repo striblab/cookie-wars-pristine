@@ -7,7 +7,6 @@
 	const dispatch = createEventDispatcher();
 
 	function selectRecipe(event) {
-    console.log(event.target);
     let detail_state = {
 			id: event.target.getAttribute('recipe_id'),
       slider_id: event.target.getAttribute('slider_id')
@@ -23,8 +22,5 @@
     <h5>{recipe.year}</h5>
     <h3 on:click|capture="{selectRecipe}" recipe_id="{recipe.id}" slider_id="{list_index}" >{recipe.name}</h3>
     <p class="blurb">{recipe.summary}</p>
-    <!-- <div class="author">{recipe.baker[0].name}</div> -->
   </div>
-  <!-- <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/> -->
-  <!-- <img alt="{recipe.name}" class="cookie-thumbnail" src="{recipe.thumbnail}"/> -->
 </div>
