@@ -27,6 +27,8 @@
 
 	export let scrollY;
 	export let y_from_top;
+	export let search_timeout;
+	export let previous_search_term = '';
 
 	$: {
 		let happy = scrollY;
@@ -41,8 +43,7 @@
 	$: {
 		if (checked_features.length < 1) {
 			checked_features_str = 'None';
-		}
-		else if (checked_features.length > 3) {
+		} else if (checked_features.length > 3) {
 			checked_features_str = checked_features.slice(0, 3).join(', ') + ' ...';
 		} else {
 			checked_features_str = checked_features.join(', ')
@@ -87,6 +88,11 @@
 			match = false;
 		}
 
+		// TODO: Wait x ms If this is a search log Google event
+		// if (search_term != '') {
+		// 	window.gtag("event", "Search", {'event_category': 'Cookie contest', 'event_label': search_term});
+		// }
+
 		return match;
 	});
 
@@ -96,8 +102,6 @@
 				// Using old-school loop so we can get the index and break once we find the match.
 				current_recipe = cookie_list[i];
 				detail_view_active = true;
-				console.log(current_recipe);
-				console.log(slider, i);
 				slider.goTo(i);
 				break;
 			}
@@ -129,6 +133,25 @@
 	  gtag('js', new Date());
 	  gtag('config', 'UA-114906116-1');
 	});
+
+	const logFeatureClick = function (event) {
+		let event_action = event.target.checked ? 'Feature selected' : 'Feature de-selected';
+		window.gtag("event", event_action, {'event_category': 'Cookie contest', 'event_label': event.target.value});
+	}
+
+	const logTypeClick = function (event) {
+		window.gtag("event", "Type selected", {'event_category': 'Cookie contest', 'event_label': event.target.value});
+	}
+
+	const logSearch = function (event) {
+		clearTimeout(search_timeout);
+		search_timeout = setTimeout(function () {
+			if (event.target.value != previous_search_term) {
+				previous_search_term = event.target.value;
+				window.gtag("event", "Cookie search", {'event_category': 'Cookie contest', 'event_label': event.target.value});
+			}
+		}, 1000);
+	}
 
 	const handleArrowClick = function(event) {
 		if (filters_hidden) {
@@ -169,7 +192,7 @@
 	<div class="search">
 		<h5>Search</h5>
 		<i class="strib-icon strib-search"></i>
-		<input placeholder="ex: cinnamon" bind:value={search_term}/>
+		<input placeholder="ex: cinnamon" bind:value={search_term} on:keyup={logSearch}/>
 	</div>
 
 	<div class="navigation inline" id="nav" class:fixed="{y_from_top <= 0}" class:inline="{y_from_top > 0}">
@@ -199,7 +222,7 @@
 			  	<h5>Features</h5>
 				{#each features as feature}
 				<div class="feature">
-					<input type=checkbox bind:group={checked_features} value={feature} class:all-selected="{features == checked_features}">
+					<input type=checkbox bind:group={checked_features} value={feature} class:all-selected="{features == checked_features}" on:click={logFeatureClick}>
 					<label class="features">{feature}</label>
 				</div>
 				{/each}
@@ -207,7 +230,7 @@
 			  	<h5>Cookie type</h5>
 				{#each cookie_types as type}
 					<div class="feature">
-						<input type=radio bind:group={current_cookie_type} value={type}>
+						<input type=radio bind:group={current_cookie_type} value={type} on:click={logTypeClick}>
 						<label class="type">{type}</label>
 					</div>
 				{/each}
