@@ -7,6 +7,7 @@ div.navigation {
 		position: fixed;
 		top: 0;
 		z-index: 1000;
+		left: 0;
 	}
 	&.inline {
 		div.top-nav {
@@ -80,7 +81,7 @@ div.navigation {
 		margin: 0 auto;
 		box-sizing: border-box;
 		@media (min-width: 701px) {
-			width: 500px;
+			width: 550px;
 			padding-left: 5%;
 			padding-right: 5%;
 			position: absolute;
@@ -217,27 +218,27 @@ div.navigation {
 		    	&:hover {
 		    		cursor: pointer;
 		    	}
-		    	&:checked {
+		    	/*&:checked {
 					&::before {
 			    		content: '-';
-			    		color: #006341;
 			    	}
-		    	}
+		    	}*/
 		    }
 		    input:checked + label {
 		    	font-weight: bold;
 			    border: 2px solid #006341;
+			    color: #006341;
 		    }
-		    input:checked + label.features::before {
+		   /* input:checked + label.features::before {
 		    	content: '-';
-		    }
+		    }*/
 		    input:selected + label.type {
 		    	font-weight: bold;
 			    border: 2px solid #006341;
 		    }
 		    label.type {
 			    display: inline-block;
-			    border: 1px solid #006341;
+			    border: 1px solid #a0a0a0; /*was 006341 */
 			    padding: 5px 10px 5px 10px;
 			    line-height: 1;
 			    margin-right: 5px;
@@ -246,12 +247,12 @@ div.navigation {
 			    font-size: 14px;
 			    position: relative;
 			    width: auto;
-			    color: #006341;
+			    color: #a0a0a0; /*was 006341 */
 			}
 			label.features {
 			    /*display: inline-block; */
-			    border: 1px solid #006341;
-			    padding: 5px 10px 5px 20px;
+			    border: 1px solid #a0a0a0; /*was 006341 */
+			    padding: 5px 10px 5px 10px;
 			    line-height: 1;
 			    margin-right: 5px;
 			    margin-bottom: 5px;
@@ -259,13 +260,13 @@ div.navigation {
 			    font-size: 14px;
 			    position: relative;
 			    width: auto;
-			    color: #006341;
-			    &::before {
+			    color: #a0a0a0;
+			    /*&::before {
 		    		content: '+';
 		    		position: absolute;
 		    		left: 9px;
 		    		color: #006341;
-		    	}
+		    	}*/
 			}
 			label.features, label.type {
 				@media (min-width: 701px) {
@@ -294,11 +295,4 @@ div.navigation {
 			}
 		}
 	}
-}
-svelte-scroller-background-container.svelte-ihz62u {
-	z-index: 10000 !important;
-	margin-bottom: 100px;
-}
-svelte-scroller-foreground {
-	padding-top: 400px;
 }

@@ -102,6 +102,12 @@ div.recipe-detail {
 			font-size: 20px;
 		}
 	}
+	a  {
+		color: #006341; 
+		&:hover {
+			color: white;
+		}
+	}
 	div.share {
 		margin: 0 auto;
 		border: 2px solid #006341;
@@ -109,15 +115,15 @@ div.recipe-detail {
 	    line-height: 1;
 	    margin-top: 20px;
 	    border-radius: 10px;
-	    font-size: 14px;
 	    position: relative;
 	    width: auto;
 	    font-weight: bold;
 	    color: #006341;
 	    text-align: center;
-	    width: 85px;
+	    width: 120px;
 	    transition: 0.5s all;
-	    &.print {
+	    margin-bottom: 50px;
+	    &.printer {
 			@media (max-width: 700px) {
 				display: none;
 			}
@@ -128,20 +134,23 @@ div.recipe-detail {
 		&.email {
 			@media (max-width: 700px) {
 				display: block;
+				color: #006341 !important;
 			}
 			@media (min-width: 701px) {
 				display: none;
 			}
 		}
 	    &:hover {
-	    	color: white;
+	    	color: white !important;
 	    	background: #006341;
 	    	transition: 0.5s all;
 	    	cursor: pointer;
 	    }
 	    p {
 	    	margin: 0;
-	    	font-size: 14px;
+	    	font-size: 12px;
+	    	text-transform: uppercase;
+    		letter-spacing: 1px;
 	    }
 	}
 	div.text {

@@ -39,7 +39,10 @@
 
 	export let checked_features_str = '';
 	$: {
-		if (checked_features.length > 3) {
+		if (checked_features.length < 1) {
+			checked_features_str = 'None';
+		}
+		else if (checked_features.length > 3) {
 			checked_features_str = checked_features.slice(0, 3).join(', ') + ' ...';
 		} else {
 			checked_features_str = checked_features.join(', ')
@@ -146,7 +149,7 @@
 
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
-		<!-- <img src="http://static.startribune.com/images/cookiehero/cookiegif.gif" class="cookieimg one"> -->
+		<img src="http://static.startribune.com/images/cookiehero/cookiegif-2.gif" class="cookieimg one">
 		<div class="headline">
 			<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
 			<h1><span>holiday cookie contest</span></h1>
@@ -173,7 +176,7 @@
 				<!-- <img class="logo black" src=""> -->
 			</a>
 			<div class="sharing">
-				<!-- sharing -->
+				<!-- share -->
 			</div>
 		</div>
 		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">

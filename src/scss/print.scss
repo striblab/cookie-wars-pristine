@@ -1,8 +1,42 @@
 @media print {
-    div#customize-controls,
-    .second-nav {
-        display:none !important;
-        height:0;
-        transform:none;
-    }
+	.hero-wrapper {
+		display: none;
+	}
+    div#customize-controls {
+	    display: none;
+	    margin-bottom: 50px;
+	}
+	div.image {
+	    display: none;
+	    height: 0;
+	}
+	div.navigation {
+		display: none;
+	}
+	div.recipe-detail {
+		height: auto;
+		position: relative;
+		overflow: visible !important;
+		display: inline;
+		overflow-y: visible !important;
+		padding-right: 30px;
+		/*padding-top: 400px;
+		padding-bottom: 400px;*/
+		page-break-inside: auto;
+		div.share.printer {
+			display: none;
+		}
+		div.share.email {
+			display: none;
+		}
+	}
+	div.recipe-wrapper {
+		position: relative;
+		width: 100%;
+		height: auto;
+		overflow-y:  visible !important;
+		padding-top: 0px;
+		z-index: 10000;
+		page-break-inside: auto;
+	}
 }
