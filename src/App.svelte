@@ -215,6 +215,7 @@
 			</a>
 			<div class="sharing">
 				<!-- share -->
+				
 			</div>
 		</div>
 		<div class="second-nav" class:hide="{filters_hidden === true && y_from_top <= 0}" class:recipe-detail="{detail_view_active == true}">
@@ -226,7 +227,7 @@
 					<i class="strib-icon strib-nav-forward"></i>
 				</div>
 				<div class="back" on:click={handleBackClick}>
-					<p>Back</p>
+					<p><i class="strib-icon strib-nav-back"></i> Back</p>
 				</div>
 			</div>
 
@@ -260,6 +261,14 @@
 			{/each}
 		</div>
 	</div>
+
+	<div class="credits">
+		<h3>credits</h3>
+		<p><b>Recipe selection</b> Rick Nelson, Lee Dean</p>
+		<p><b>Editing</b> Rick Nelson, Lee Dean</p>
+		<p><b>Development</b> Michael Corey, Jamie Hutt, Anna Boone</p>
+		<p><b>Design</b> Anna Boone, Josh Penrod, Jamie Hutt</p>
+	</div>
 </div>
 
 <div class="recipe-wrapper" class:hidden="{detail_view_active == false}">
@@ -279,7 +288,7 @@
 					<p>{checked_features_str}</p>
 				</div>
 				<div class="back" on:click={handleBackClick}>
-					<p>Back</p>
+					<p><i class="strib-icon strib-nav-back"></i> Back</p>
 				</div>
 			</div>
 		</div>
