@@ -14,7 +14,7 @@
 	export let search_term = '';
 
 	export let features = ['Winner', 'Easy', 'Chocolate', 'Fruit', 'Nut', 'International', 'Fun with kids'];
-	export let checked_features = features;
+	export let checked_features = [];
 
 	export let cookie_types = ['Any', 'Rolled', 'Bar', 'Drop', 'Refrigerator'];
 	export let current_cookie_type = 'Any';
@@ -52,15 +52,14 @@
 	// Detail view
 	export const showDetail = function (event) {
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
-
 		detail_view_active = true;
-		console.log(current_recipe);
-		console.log(event.detail);
 		slider.goTo(event.detail.slider_id);
+		window.gtag("event", "Recipe click", {'event_category': 'Cookie contest', 'event_label': current_recipe.name});
+	}
 
-		console.log('hello', current_recipe.name);
-		console.log(window.gtag("event", "Recipe click", {'event_category': 'Cookie contest', 'event_label': current_recipe.name}));
-
+	export const clearFilters = function (event) {
+		checked_features = [];
+		current_cookie_type = 'Any';
 	}
 
 	// Search/filter functions
@@ -96,7 +95,10 @@
 			if (cookie_list[i].id == recipe_id) {
 				// Using old-school loop so we can get the index and break once we find the match.
 				current_recipe = cookie_list[i];
-				slider.goTo(i-1);
+				detail_view_active = true;
+				console.log(current_recipe);
+				console.log(slider, i);
+				slider.goTo(i);
 				break;
 			}
 		}
@@ -117,6 +119,7 @@
 
 		const parsed_querystring = queryString.parse(location.search);
 		if (parsed_querystring['recipe']) {
+			console.log(parsed_querystring['recipe']);
 			triggerDetailView(parsed_querystring['recipe']);
 		}
 
@@ -149,7 +152,7 @@
 
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
-		<img src="http://static.startribune.com/images/cookiehero/cookiegif-2.gif" class="cookieimg one">
+		<img alt="Rotating cookies gif" src="http://static.startribune.com/images/cookiehero/cookiegif-2.gif" class="cookieimg one">
 		<div class="headline">
 			<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
 			<h1><span>holiday cookie contest</span></h1>
@@ -209,7 +212,7 @@
 					</div>
 				{/each}
 
-				<h4>Clear all filters</h4>
+				<h4><a href="Javascript:;" on:click={clearFilters}>Clear all filters</a></h4>
 			</div>
 		</div>
 	</div>
