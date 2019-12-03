@@ -96,6 +96,7 @@ div.navigation {
 		padding-right: 7.5%;
 		margin: 0 auto;
 		box-sizing: border-box;
+		padding-bottom: 30px;
 		@media (min-width: 701px) {
 			width: 550px;
 			padding-left: 5%;
@@ -106,6 +107,7 @@ div.navigation {
 			transform: translateX(-50%);
 			text-align: center;
 			border-bottom: 1px solid #E5E7E9;
+			padding-bottom: 50px;
 		}
 		&.hide {
 			div.filters {
