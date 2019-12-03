@@ -195,7 +195,7 @@
 		</div>
 	</div>
 
-	<h2 class="subhead">Over 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
+	<h2 class="subhead">Nearly 100 recipes sure to serve up winter cheer all season long. Search by ingredient below, use our filters or just explore the whole, sweet world.</h2>
 
 	<div class="sponsor">
 		<p>With Support From</p>
@@ -264,8 +264,8 @@
 
 	<div class="credits">
 		<h3>credits</h3>
-		<p><b>Recipe selection</b> Rick Nelson, Lee Dean</p>
-		<p><b>Editing</b> Rick Nelson, Lee Dean</p>
+		<p><b>Recipe selection</b> Lee Svitak Dean, Rick Nelson</p>
+		<p><b>Editing</b> Lee Svitak Dean, Rick Nelson</p>
 		<p><b>Development</b> Michael Corey, Jamie Hutt, Anna Boone</p>
 		<p><b>Design</b> Anna Boone, Josh Penrod, Jamie Hutt</p>
 	</div>
