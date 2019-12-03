@@ -117,6 +117,7 @@
 	onMount(() => {
 		slider = tns({
 	    container: '#detail-slider',
+	    autoHeight: true,
 	    controlsContainer: "#customize-controls",
 	    items: 1,
 	    slideBy: 'page',

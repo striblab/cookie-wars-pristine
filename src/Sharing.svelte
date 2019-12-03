@@ -1,6 +1,5 @@
 <script>
 </script>
-
 <ul class="article-share">
    <li class="share__facebook clickQS">
        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fstrib.mn%2F2pbUTDv" class="st-share-link"
@@ -41,7 +40,7 @@
       </a>
    </li>
    <li class="share__email clickQS">
-        <a id="share-email-link" href="mailto:?subject=From%20Star%20Tribune%3A%20Star%20Tribune%20Cookie%20Contest&amp;body=From%20Star%20Tribune%3A%20%0A%0AStar%20Tribune%20Cookie%20Contest%0A%0A%0A%0Ahttp%3A%2F%2Fstrib.mn%2F2pbUTDv" class="st-share-link social-sharing email" title="email" data-st-share-service="email" data-st-share-url="http://vm-www.startribune.com/email/share/content/?section=%2Fprotected&amp;story_id=564807802&amp;headline=Star+Tribune+Cookie+Contest"
+        <a id="share-email-link" href="mailto:?subject=From%20Star%20Tribune%3A%20Star%20Tribune%20Cookie%20Contest&amp;body=From%20Star%20Tribune%3A%20%0A%0AStar%20Tribune%20Cookie%20Contest%0A%0A%0A%0Ahttp%3A%2F%2Fstrib.mn%2F2pbUTDv" class="st-share-link social-sharing email" title="email" data-st-share-service="email" data-st-share-url="http://www.startribune.com/email/share/content/?section=%2Fprotected&amp;story_id=564807802&amp;headline=Star+Tribune+Cookie+Contest"
            data-id="564807802"
            data-linkname="Email"
            target="_blank"
