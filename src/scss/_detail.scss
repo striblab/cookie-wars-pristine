@@ -176,6 +176,7 @@ div.recipe-detail {
 		list-style: none;
 		padding: 0;
 		font-size: 15px;
+		margin-top: 20px;
 		li {
 			margin-bottom: 7px;
 			position: relative;
@@ -194,6 +195,7 @@ div.recipe-detail {
 	p {
 		font-size: 15px;
 		line-height: 1.4;
+		margin-top: 20px;
 		@media (min-width: 601px) {
 			font-size: 18px;
 	   		line-height: 1.4;
