@@ -63,9 +63,25 @@ div.navigation {
 		}
 		div.sharing {
 			position: absolute;
-			height: 20px;
-			right: 10px;
-			transform: translateY(-50%);
+		    height: auto;
+		    right: 5px;
+		    transform: translateY(-43%);
+		    top: 50%;
+		    @media (min-width: 701px) {
+			    right: 10px;
+			    transform: translateY(-50%);
+			}
+		    .article-share li {
+		    	width: 30px;
+			    height: 30px;
+			    display: inline-block;
+			    margin: 0px 1px;
+    			@media (min-width: 701px) {
+					width: 33px;
+	    			height: 32px;
+	    			margin: 0 2px;
+				}
+		    }
 		}
 		@media (min-width: 701px) {
 			height: 45px;
