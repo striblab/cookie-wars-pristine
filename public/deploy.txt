@@ -1,1 +1,1 @@
-[production] New photos
+[production] Resized images
