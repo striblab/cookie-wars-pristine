@@ -196,7 +196,7 @@
 		</div>
 	</div>
 
-	<h2 class="subhead">There are so many choices, with more than 100 recipes for the baker to use all year long. Find the ones you want by searching individual ingredients, by using the filters, or by exploring all the recipes.</h2>
+	<h2 class="subhead">Nearly 100 recipes to use all year long.</h2>
 
 	<div class="sponsor">
 		<p>With Support From</p>
