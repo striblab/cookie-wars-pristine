@@ -192,7 +192,7 @@
 		<img alt="Rotating cookies gif" src="http://static.startribune.com/images/cookiehero/cookiegif-2.gif" class="cookieimg one">
 		<div class="headline">
 			<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
-			<h1><span>holiday cookie contest</span></h1>
+			<h1><span>Best Holiday Cookies</span></h1>
 		</div>
 	</div>
 
