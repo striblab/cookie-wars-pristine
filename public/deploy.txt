@@ -1,1 +1,1 @@
-[staging] Updated photos
+[production] No deploy message specified.
