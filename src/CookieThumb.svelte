@@ -7,7 +7,7 @@
 	const dispatch = createEventDispatcher();
 
 	function selectRecipe(event) {
-    console.log(event.target);
+    // console.log(event.target);
 
     let detail_state = {
 			id: event.target.getAttribute('recipe_id'),

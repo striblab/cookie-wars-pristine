@@ -56,6 +56,7 @@
 		current_recipe = cookie_list.filter(recipe => recipe.id == event.detail.id)[0];
 		detail_view_active = true;
 		slider.goTo(event.detail.slider_id);
+		// console.log('show detail');
 		history.pushState(event.detail, event.detail.id, '?recipe=' + event.detail.id);
 		window.gtag("event", "Recipe click", {'event_category': 'Cookie contest', 'event_label': current_recipe.name});
 	}
@@ -106,7 +107,7 @@
 	}
 
 	window.onpopstate = function(event) {
-		console.log('pop!', event);
+		// console.log('pop!', event);
 		if (event.state.id) {
 			triggerDetailView(event.state.id);
 		} else {
@@ -125,10 +126,11 @@
 	  });
 
 		slider.events.on('indexChanged', function (event) {
+			// console.log('state change');
 			// Push state change
 			let detail_state = {
-				id: cookie_list[event.index-1].id,
-	      slider_id: event.index-1
+				id: cookie_list[event.index].id,
+	      slider_id: event.index
 			}
 			history.pushState(detail_state, detail_state.id, '?recipe=' + detail_state.id);
 		});

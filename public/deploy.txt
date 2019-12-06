@@ -1,1 +1,1 @@
-[production] Better handling of apostrophes
+[production] State change index of slider changed
