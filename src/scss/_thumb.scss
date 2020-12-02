@@ -29,6 +29,33 @@ div.filtered-results {
 			display: none;
 		}
 	}
+	&.year-2020 {
+		&:before {
+			content: '';
+			width: 60px;
+			height: 60px;
+			position: absolute;
+			top: -10px;
+			right: -10px;
+			background: #006341;
+			border-radius: 50%;
+			text-align: center;
+		}
+		&:after {
+			content: 'new recipe';
+			width: 60px;
+			height: 60px;
+			position: absolute;
+			top: 5px;
+			right: -10px;
+			font-family: "Benton Sans";
+			font-weight: bold;
+			font-size: 12px;
+			text-transform: uppercase;
+			color: white;
+			text-align: center;
+		}
+	}
 	@media (min-width: 601px) {
 		flex-basis: 32%;
 		height: 200px;
