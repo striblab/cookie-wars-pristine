@@ -200,7 +200,7 @@
 		<p class="caption">Star Tribune 2020 Holiday Cookie Contest winner: Spumoni Squares by Joanne Holtmeier. Photo by Dennis Becker.</p>
 	</div>
 
-	<h2 class="subhead">More than 100 recipes to use this holiday season — and all year long.</h2>
+	<h2 class="subhead">Nearly 100 recipes to use this holiday season — and all year long.</h2>
 
 	<div class="sponsor">
 		<p>With Support From</p>
