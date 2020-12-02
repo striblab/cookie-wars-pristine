@@ -109,6 +109,7 @@ div.navigation {
 			padding-top: 4px;
 		}
 		&.hide {
+			height: 45px;
 			div.filters {
 				height: 0;
 				overflow: hidden;

@@ -191,14 +191,16 @@
 
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
-		<img alt="Rotating cookies gif" src="http://static.startribune.com/images/cookiehero/cookiegif-2.gif" class="cookieimg one">
-		<div class="headline">
-			<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
-			<h1><span>Best Holiday Cookies</span></h1>
+		<div class="main-photo">
+			<div class="headline">
+				<img alt="Star Tribune logo" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png" class="logo">
+				<h1><span>Best Holiday Cookies</span></h1>
+			</div>
 		</div>
+		<p class="caption">Star Tribune 2020 Holiday Cookie Contest winner: Spumoni Squares by Joanne Holtmeier. Photo by Dennis Becker.</p>
 	</div>
 
-	<h2 class="subhead">Nearly 100 recipes to use all year long.</h2>
+	<h2 class="subhead">More than 100 recipes to use this holiday season — and all year long.</h2>
 
 	<div class="sponsor">
 		<p>With Support From</p>
