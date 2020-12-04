@@ -216,8 +216,7 @@
 	<div class="navigation inline" id="nav" class:fixed="{y_from_top <= 0}" class:inline="{y_from_top > 0}">
 		<div class="top-nav">
 			<a href="http://startribune.com/">
-				<img alt="Star Tribune logo" class="logo white" src="http://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
-				<!-- <img class="logo black" src=""> -->
+				<img alt="Star Tribune logo" class="logo white" src="https://static.startribune.com/images/logos/icn-nav-masthead-logo-400-60.png">
 			</a>
 			<div class="sharing">
 				<Sharing/>
