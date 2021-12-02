@@ -197,13 +197,13 @@
 				<h1><span>Best Holiday Cookies</span></h1>
 			</div>
 		</div>
-		<p class="caption">Star Tribune 2020 Holiday Cookie Contest winner: Spumoni Squares by Joanne Holtmeier. Photo by Dennis Becker.</p>
+		<p class="caption">The winner and finalists from 2021 Star Tribune Holiday Cookie Contest. Photo by Dennis Becker, food styling by Lisa Golden Schroeder.</p>
 	</div>
 
 	<h2 class="subhead">Nearly 100 recipes to use this holiday season — and all year long.</h2>
 
 	<div class="sponsor">
-		<p>With Support From</p>
+		<!-- <p>With Support From</p> -->
 			<div id="div-gpt-ad-7442209-1"></div>
 	</div>
 
