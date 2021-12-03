@@ -203,8 +203,8 @@
 	<h2 class="subhead">Nearly 100 recipes to use this holiday season — and all year long.</h2>
 
 	<div class="sponsor">
-		<!-- <p>With Support From</p> -->
-			<div id="div-gpt-ad-7442209-1"></div>
+		<p>With Support From</p>
+		<zeus-ad id="zeus_div-gpt-ad-7442209-1"></zeus-ad>
 	</div>
 
 	<div class="search">
