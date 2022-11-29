@@ -189,6 +189,8 @@
 
 <svelte:window bind:scrollY/>
 
+<!-- hero -->
+
 <div class="hero-wrapper"  class:recipe-show="{detail_view_active == true}">
 	<div class="hero">
 		<div class="main-photo">
