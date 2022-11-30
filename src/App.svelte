@@ -199,14 +199,14 @@
 				<h1><span>Best Holiday Cookies</span></h1>
 			</div>
 		</div>
-		<p class="caption">The winner and finalists from 2021 Star Tribune Holiday Cookie Contest. Photo by Dennis Becker, food styling by Lisa Golden Schroeder.</p>
+		<p class="caption">The winner and finalists from 2022 Star Tribune Holiday Cookie Contest. Photo by Dennis Becker, food styling by Lisa Golden Schroeder.</p>
 	</div>
 
-	<h2 class="subhead">Nearly 100 recipes to use this holiday season — and all year long.</h2>
+	<h2 class="subhead">More than 100 recipes to use this holiday season — and all year long.</h2>
 
 	<div class="sponsor">
-		<p>With Support From</p>
-		<zeus-ad id="zeus_div-gpt-ad-7442209-1"></zeus-ad>
+		<p>With support from</p>
+		<div class="htlad-article-template-special" data-unit="/7932/website/web_variety/web_variety_dining"></div>
 	</div>
 
 	<div class="search">
@@ -270,9 +270,9 @@
 
 	<div class="credits">
 		<h3>credits</h3>
-		<p><b>Recipe selection</b> Lee Svitak Dean, Rick Nelson</p>
-		<p><b>Editing</b> Lee Svitak Dean, Rick Nelson</p>
-		<p><b>Development</b> Michael Corey, Jamie Hutt, Anna Boone</p>
+		<p><b>Recipe selection</b> Lee Svitak Dean, Nicole Hvidsten, Rick Nelson</p>
+		<p><b>Editing</b> Nicole Hvidsten, Lee Svitak Dean, Rick Nelson</p>
+		<p><b>Development</b> Michael Corey, Jamie Hutt, Anna Boone, Tom Nehil</p>
 		<p><b>Design</b> Anna Boone, Josh Penrod, Jamie Hutt</p>
 	</div>
 </div>
