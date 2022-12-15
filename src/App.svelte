@@ -122,7 +122,8 @@
 	    controlsContainer: "#customize-controls",
 	    items: 1,
 	    slideBy: 'page',
-	    autoplay: false
+	    autoplay: false,
+		loop: false
 	  });
 
 		slider.events.on('indexChanged', function (event) {
